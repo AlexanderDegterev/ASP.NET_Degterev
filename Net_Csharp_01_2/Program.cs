@@ -8,61 +8,101 @@ namespace Net_Csharp_01_2
 {
     class Item
     {
-        public string goods = "pants";
-        public double price = 10.54;
-        public double quantity = 100;
-        
-        public  double sum(double price, double quantity) // метод возвращаюший стоимость товара
-        {
-            double a = price;
-            double b = quantity;
+        public string goods; //= "pants";
+        public double price; //= 10.54;
+        public double quantity; //= 100;
 
-            return a*b;
+        public Item(string a, double b, double c)
+        {
+            goods = a;
+            price = b;
+            quantity = c;
         }
 
-        /*public void writeResult()
+        public Item()
         {
-            Console.WriteLine("Вычислить общую стоимость товара:? y/n:");
-            string s = Console.ReadLine();
-            s = s.ToLower();
-            if (s == "y")
-            {
-                Console.WriteLine("Стоимость товара:" +sum(price,quantity));
-                return;
-            }
-        }*/
-                
+            // TODO: Complete member initialization
+        }
+
+        public double sum(double price, double quantity) // метод возвращаюший стоимость товара
+        {
+            return price * quantity;
+        }
+
     }
 
-    class Program
+    public class Program
     {
+        int Total = 5; //100000
+        double sumall = 0;
 
-        /*public static double sum(double price, double quantity)
+
+        static void Main()
         {
-            double a = price;
-            double b = quantity;
+             //int Total = 100000;
+             //double sumall=0;
 
-            return a * b;
-        }*/
+             Random rnd = new Random();
+             //var theItems = new List<Item>;
+             double sum = 0;
+             
+             for (int i = 1; i <= Total; i++)
+             {
+                 Item items = new Item();
+                 items.add(item);
+                 sum += item.getSum();
+                 
+                 foreach (Item theItem in theItems)
+             {
+                     Console.WriteLine(theItem.goods + " " + theItem.price + " " + theItem.quantity + " " + theItem.sum(theItem.price, theItem.quantity));
+                 
+             } // end for
 
-        
-         static void Main()
-        {
-            Item item1 = new Item();
-            //item1.goods = "pants";
-            //item1.price = 10.54;
-            //item1.quantity = 100;
-            item1.sum(item1.price, item1.quantity);
-            
-            Console.WriteLine("Наименование:   Цена за еденицу:   Количество:   Стоимость товара:");
-            Console.Write(item1.goods + "           " + item1.price + "               " + item1.quantity + "            " + item1.sum(item1.price, item1.quantity) + "\n");
-            //Console.Write("Наименование:"+item1.goods+"   "); // выводит на экран 
-            //Console.Write("Цена за еденицу:" + item1.price + " ");
-            //Console.Write("Количество:" + item1.quantity + " \n");
-            //Console.WriteLine("Стоимость товара:" + item1.sum(item1.price, item1.quantity));
-                        
+
+
+             /*var theItems = new List<Item>
+             {
+                 new Item() {goods = ((char)rnd.Next('a', 'z' + 1)).ToString(), price = rnd.Next(100,100000), quantity = rnd.Next(1,100)}
+                 
+             };
+
+             foreach (Item theItem in theItems)
+             {
+                 sumall +=theItem.sum(theItem.price, theItem.quantity);
+                 Console.WriteLine(theItem.goods + " " + theItem.price + " " + theItem.quantity + " " + theItem.sum(theItem.price, theItem.quantity));
+                 Console.WriteLine("Сумма всех стоимостей товаров:"+sumall+ " \n");
+                 
+             }*/ 
+             
          }
 
         
     }
+  }
 }
+
+//Item item1 = new Item("pants",10.54,100);
+//item1.goods = "pants";
+//item1.price = 10.54;
+//item1.quantity = 100;
+//item1.sum(item1.price, item1.quantity);
+
+//Console.WriteLine("Наименование:   Цена за еденицу:   Количество:   Стоимость товара:");
+//Console.Write(item1.goods + "           " + item1.price + "               " + item1.quantity + "            " + item1.sum(item1.price, item1.quantity) + "\n");
+//Console.Write("Наименование:"+item1.goods+"   "); // выводит на экран 
+//Console.Write("Цена за еденицу:" + item1.price + " ");
+//Console.Write("Количество:" + item1.quantity + " \n");
+//Console.WriteLine("Стоимость товара:" + item1.sum(item1.price, item1.quantity));
+
+
+/*public void writeResult()
+       {
+           Console.WriteLine("Вычислить общую стоимость товара:? y/n:");
+           string s = Console.ReadLine();
+           s = s.ToLower();
+           if (s == "y")
+           {
+               Console.WriteLine("Стоимость товара:" +sum(price,quantity));
+               return;
+           }
+       }*/
