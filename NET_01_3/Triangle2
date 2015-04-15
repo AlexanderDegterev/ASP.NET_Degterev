@@ -1,0 +1,107 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NET_01_3
+{
+    class Triangle
+    {
+
+        public static void Main()
+        {
+
+            Console.WriteLine("Введите стороны и углы треугольника:");
+            input();
+            Console.WriteLine("Выберете операцию:");
+            Console.WriteLine("1. Периметр треугольника");
+            Console.WriteLine("2. Площадь треугольника");
+            Console.WriteLine("3. Вычисление высоты треугольника");
+            Console.WriteLine("4. Вид треугольника");
+            Console.WriteLine("5. Описание треугольника");
+            int num = Convert.ToInt32(Console.ReadLine());
+            double output = 0;
+            double pp = (arr[0] + arr[1] + arr[2]) / 2;
+            Console.Clear();
+            switch (num)
+            {
+                case 1:
+                    Console.WriteLine("Периметр : {0}см", arr[0] + arr[1] + arr[2]);
+                    break;
+                case 2:
+                    Console.WriteLine("Площадь : {0}см", Math.Sqrt(pp * (pp - arr[0]) * (pp - arr[1]) * (pp - arr[2])));
+                    break;
+                case 3:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        output = 2 * (Math.Sqrt(pp * (pp - arr[0]) * (pp - arr[1]) * (pp - arr[2]))) / arr[i];
+                        Console.WriteLine("Высота опущенна на сторону №{0} равняется {1}см", i + 1, output);
+                    }
+                    break;
+                case 4:
+                    type();
+                    break;
+                case 5:
+                    Console.WriteLine("Полное описание треугольника:");
+                    Console.WriteLine("Периметр : {0}см", arr[0] + arr[1] + arr[2]);
+                    Console.WriteLine("Площадь : {0}см", Math.Sqrt(pp * (pp - arr[0]) * (pp - arr[1]) * (pp - arr[2])));
+                    for (int i = 0; i < 3; i++)
+                    {
+                        output = 2 * (Math.Sqrt(pp * (pp - arr[0]) * (pp - arr[1]) * (pp - arr[2]))) / arr[i];
+                        Console.WriteLine("Высота опущенна на сторону №{0} равняется {1}см", i + 1, output);
+                    }
+                    type();
+                    break;
+            }
+
+            Console.ReadLine();
+        }
+        public static void type()
+        {
+            int[] a = new int[6];
+            for (int i = 0; i < 6; i++)
+            {
+                a[i] = Convert.ToInt32(arr[i]);
+            }
+            if (a[0] == a[1] && a[1] == a[2])
+            {
+                Console.WriteLine("Треугольник равносторонний");
+                return;
+            }
+            if (a[0] == a[1] || a[1] == a[2] || a[2] == a[0])
+            {
+                Console.WriteLine("Треугольник равноберенный");
+            }
+            if (a[0] != a[1] && a[1] != a[2])
+            {
+                Console.WriteLine("Треугольник разносторонний");
+            }
+        }
+        public static double[] arr = new double[6];
+        public static void input()
+        {
+        beg_input:
+            for (int i = 1; i < 7; i++)
+            {
+                if (i < 4)
+                {
+                    Console.WriteLine("Введите сторону №" + i);
+                    arr[i - 1] = Convert.ToInt32(Console.ReadLine());
+                }
+                else
+                {
+                    Console.WriteLine("Введите угол  №" + i);
+                    arr[i - 1] = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+            if (arr[3] + arr[4] + arr[5] != 180)
+            {
+                Console.Clear();
+                Console.WriteLine("Сумма углов не равна 180. Повторите ввод");
+                goto beg_input;
+            }
+            Console.Clear();
+        }
+    }
+}
