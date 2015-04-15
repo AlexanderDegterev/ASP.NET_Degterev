@@ -46,6 +46,8 @@ namespace NET_01_3
 
             Console.ReadLine();
         }*/ 
+
+
         {
             int[] a = new int[6];
             for (int i = 0; i < 6; i++)
@@ -66,6 +68,11 @@ namespace NET_01_3
                 Console.WriteLine("Треугольник разносторонний");
             }
         }
+        public int Perimetr()
+        {
+            return arr[0] + arr[1] + arr[2];
+        }
+
         public static double[] arr = new double[6];
         public static void inputTriangle()
         {
