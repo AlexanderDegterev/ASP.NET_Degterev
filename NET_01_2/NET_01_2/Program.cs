@@ -26,7 +26,7 @@ namespace NET_01_2
             // TODO: Complete member initialization
         }
 
-        public double sum(double price, double quantity) // метод возвращаюший стоимость товара
+        public double SumGoods(double price, double quantity) // метод возвращаюший стоимость товара
         {
             return price * quantity;
         }
@@ -36,10 +36,7 @@ namespace NET_01_2
 
     public class Program
     {
-        //int Total = 5; //100000     
-        //Random rnd = new Random();
-        //dsdadsdasdasd
-
+        
         static void Main()
         {
             int Total = 100000; //100000 
@@ -56,8 +53,8 @@ namespace NET_01_2
 
                 foreach (Item theItem in theItems)
                 {
-                    sumall += theItem.sum(theItem.price, theItem.quantity);
-                    Console.WriteLine(theItem.goods + " " + theItem.price + " " + theItem.quantity + " " + theItem.sum(theItem.price, theItem.quantity));
+                    sumall += theItem.SumGoods(theItem.price, theItem.quantity);
+                    Console.WriteLine(theItem.goods + " " + theItem.price + " " + theItem.quantity + " " + theItem.SumGoods(theItem.price, theItem.quantity));
 
                 }
             } // end for
