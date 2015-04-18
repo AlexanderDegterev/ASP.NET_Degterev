@@ -16,10 +16,10 @@ namespace NET_01_3
             inputTriangle();    
             double pp = (arr[0] + arr[1] + arr[2]) / 2;
             Console.Clear();            
-                    Console.WriteLine("Полное описание треугольника:");
-                    Console.WriteLine("Периметр : {0}см", arr[0] + arr[1] + arr[2]);
-                    Console.WriteLine("Площадь : {0}см", Math.Sqrt(pp * (pp - arr[0]) * (pp - arr[1]) * (pp - arr[2])));                   
-                    type();                 
+            Console.WriteLine("Полное описание треугольника:");
+            Console.WriteLine("Периметр : {0}см", arr[0] + arr[1] + arr[2]);
+            Console.WriteLine("Площадь : {0}см", Math.Sqrt(pp * (pp - arr[0]) * (pp - arr[1]) * (pp - arr[2])));                   
+            type();                 
 
             Console.ReadLine();
         }
@@ -46,8 +46,6 @@ namespace NET_01_3
 
             Console.ReadLine();
         }*/ 
-
-
         {
             int[] a = new int[6];
             for (int i = 0; i < 6; i++)
@@ -68,12 +66,13 @@ namespace NET_01_3
                 Console.WriteLine("Треугольник разносторонний");
             }
         }
-        public int Perimetr()
+        public double Perimetr()
         {
             return arr[0] + arr[1] + arr[2];
         }
 
         public static double[] arr = new double[6];
+
         public static void inputTriangle()
         {
         beg_input:
