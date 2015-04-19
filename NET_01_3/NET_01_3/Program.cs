@@ -16,9 +16,9 @@ namespace NET_01_3
             inputTriangle();    
             double pp = (arr[0] + arr[1] + arr[2]) / 2;
             Console.Clear();            
-            Console.WriteLine("Полное описание треугольника:");
-            Console.WriteLine("Периметр : {0}см", arr[0] + arr[1] + arr[2]);
-            Console.WriteLine("Площадь : {0}см", Math.Sqrt(pp * (pp - arr[0]) * (pp - arr[1]) * (pp - arr[2])));                   
+            Console.WriteLine("Полное описание треугольника:");  // Проверки
+            Console.WriteLine("Периметр : {0}см", arr[0] + arr[1] + arr[2]);  // Через метод
+            Console.WriteLine("Площадь : {0}см", Math.Sqrt(pp * (pp - arr[0]) * (pp - arr[1]) * (pp - arr[2])));    // Через метод                
             type();                 
 
             Console.ReadLine();
