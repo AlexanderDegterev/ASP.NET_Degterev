@@ -9,80 +9,106 @@ namespace NET_01_2
     class Item
     {
         private string goods;
-        public string Goods {
-             
+        public string Goods
+        {
+
             get { return goods; }
-            set { goods = value; }
+            set
+            {
+                ValidateGoods(value);
+                goods = value;
+            }
         }
         private double price;
 
         public double Price
         {
             get { return price; }
-            set { price = value; }
+            set
+            {
+                ValidatePrice(value);
+                price = value;
+            }
         }
-        
+
         private double quantity;
         public double Quantity
         {
             get { return quantity; }
-            set { quantity = value; }
+            set
+            {
+                ValidateQuantity(value);
+                quantity = value;
+            }
         }
 
         public Item()
         {
             // TODO: Complete member initialization         
-            
+
+        }
+
+
+        private void ValidateGoods(string goods)
+        {
+            if (goods == Char.ToString('a'))
+            {
+                throw new Exception("Пустой товар");
+            }
+        }
+
+        private void ValidatePrice(double price)
+        {
+            if (price <= 0)
+            {
+                throw new Exception("некорректная цена повара");
+            }
+        }
+        private void ValidateQuantity(double quantity)
+        {
+            if (quantity <= 0)
+            {
+                throw new Exception("некорректная кло-во повара");
+            }
         }
 
         public double Sum() // метод возвращаюший стоимость товара
         {
             return price * quantity;
         }
+        //public double Sum(params double [] values) // Метод возвращаюший сумму из [] кол-ва
+        //{
+        //    double result = 0;
+        //    foreach (double value in values)
+        //    result += value;
+        //    return result;
+        //}        
 
-        public static bool isvalidation(double price, double quantity)
+        public class Program
         {
-            if (price > 0 && quantity > 0)
-
-                return true;
-            else
-                return false;
-        }
-
-
-
-    }
-
-    public class Program
-    {        
-        static void Main()
-        {
-            int total = 100000; //100000 
-            double sumall = 0;
-            Random rnd = new Random();
-
-
-            for (int i = 1; i <= total; i++)
+            public static void Main()
             {
-                var theItems = new List<Item>                
-                   {                       
-                     new Item() {Goods = ((char)rnd.Next('a', 'z' + 1)).ToString(), Price = rnd.Next(10,10000), Quantity = rnd.Next(1,100)}
-                     //Item.isvalidation();
-                   };
-
-                foreach (Item theItem in theItems)
+                int total = 100000; //100000 
+                double sumall = 0;
+                Random rnd = new Random();
+                
+                List<Item> items = new List<Item>();
                 {
-                    sumall += theItem.Sum();
-                    Console.WriteLine("Товар:" + theItem.Goods + "  Цена:" + theItem.Price + "  Кол-во:" + theItem.Quantity + " " + theItem.Sum());
+                    for (int i = 1; i <= total; i++)
+                    {
+                        items.Add(new Item() { Goods = ((char)rnd.Next('b', 'z' + 1)).ToString(), Price = rnd.Next(1, 10000), Quantity = rnd.Next(1, 100) });
+                    }
+                    foreach (Item aItem in items)
+                    {
+                        sumall += aItem.Sum();
+                        Console.WriteLine("Товар:" + aItem.Goods + "  Цена:" + aItem.Price + "  Кол-во:" + aItem.Quantity + " " + aItem.Sum());
 
+                    };
+                    Console.WriteLine("Сумма всех стоимостей товаров:{0:N}", sumall);
                 }
-            } // end for
-            Console.WriteLine("Сумма всех стоимостей товаров:{0:N}", sumall  );
+
+
+            }
         }
-
-
     }
 }
-
-
-
