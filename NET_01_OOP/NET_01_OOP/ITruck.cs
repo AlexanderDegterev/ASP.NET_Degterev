@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace NET_01_OOP
 {
     // интерфейс грузового авто
-    public interface ITruck
+    public interface ITruck : IVehicle
     {
         int Power { get; set; }  // мощьность
         string Type { get; set; }  // тип

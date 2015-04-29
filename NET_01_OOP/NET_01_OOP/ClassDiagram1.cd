@@ -16,14 +16,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="NET_01_OOP.IVehicle">
-    <Position X="2.5" Y="0.75" Width="1.5" />
+    <Position X="2" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAgAAAADAAA=</HashCode>
       <FileName>IVehicle.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="NET_01_OOP.ITruck">
-    <Position X="4.25" Y="0.75" Width="1.5" />
+    <Position X="0.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAABAQAAAAAAAAA=</HashCode>
       <FileName>ITruck.cs</FileName>

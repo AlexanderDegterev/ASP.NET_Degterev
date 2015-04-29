@@ -32,12 +32,17 @@ namespace NET_01_OOP
     // Реализуем интерфейс IComparable<T>
         public int CompareTo(Truck obj)
         {
-            if (this.Price > obj.Price)
-                return 1;
-            if (this.Price < obj.Price)
-                return -1;
-            else
-                return 0;
+            //проверка на null
+            if (this.Price != null)
+            {
+                if (this.Price > obj.Price)
+                    return 1;
+                if (this.Price < obj.Price)
+                    return -1;
+                else
+                    return 0;
+            }
+            else throw new System.ArgumentException("Parameter cannot be null", "original");
         }
 
         public override string ToString()
