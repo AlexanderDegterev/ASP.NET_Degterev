@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NET_01_CheckPoint__Airline_.Airline" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIABAAAAAQCAgAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Airline.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NET_01_CheckPoint__Airline_.Plane" Collapsed="true">
+    <Position X="0.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAKAAAAAAAAAAAAAACAQQAAgMQAAAAAAAAA=</HashCode>
+      <FileName>Plane.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="NET_01_CheckPoint__Airline_.IAirline" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IAirline.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NET_01_CheckPoint__Airline_.IPlane" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAQQAAAAQAAAAAAAAA=</HashCode>
+      <FileName>IPlane.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NET_01_CheckPoint__Airline_.IPassenger" Collapsed="true">
+    <Position X="6.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>IPassenger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NET_01_CheckPoint__Airline_.IFreighter" Collapsed="true">
+    <Position X="8.5" Y="2.75" Width="1.5" />
+    <InheritanceLine Type="NET_01_CheckPoint__Airline_.IPlane" ManuallyRouted="true">
+      <Path>
+        <Point X="8.25" Y="2.441" />
+        <Point X="8.25" Y="2.665" />
+        <Point X="9.25" Y="2.665" />
+        <Point X="9.25" Y="2.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IFreighter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NET_01_CheckPoint__Airline_.IHelicopter" Collapsed="true">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IHelicopter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

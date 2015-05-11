@@ -68,7 +68,7 @@ namespace NET_01_2
         {
             if (quantity <= 0)
             {
-                throw new Exception("некорректная кло-во повара");
+                throw new Exception("некорректная кол-во повара");
             }
         }
 

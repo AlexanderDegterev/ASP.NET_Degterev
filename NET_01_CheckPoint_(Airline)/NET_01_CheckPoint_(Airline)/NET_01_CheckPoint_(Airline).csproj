@@ -41,11 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Airline.cs" />
+    <Compile Include="IAirline.cs" />
+    <Compile Include="IFreighter.cs" />
+    <Compile Include="IHelicopter.cs" />
+    <Compile Include="IPassenger.cs" />
+    <Compile Include="IPlane.cs" />
+    <Compile Include="Make.cs" />
+    <Compile Include="Plane.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram_AirLine.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
