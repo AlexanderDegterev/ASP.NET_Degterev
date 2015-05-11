@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="ConsoleApplication44.MediaItem" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="ConsoleApplication44.MediaItem" BaseTypeListCollapsed="true">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAAAAAAAAAAAAAAAAQAAAAAAAEAAAAAAAAAAAA=</HashCode>
@@ -9,7 +9,7 @@
     <Lollipop Position="0.19" />
   </Class>
   <Class Name="ConsoleApplication44.Photo">
-    <Position X="7.5" Y="1.75" Width="1.5" />
+    <Position X="7.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Photo.cs</FileName>
@@ -47,7 +47,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ConsoleApplication44.AudioItem">
-    <Position X="5.25" Y="1.75" Width="1.5" />
+    <Position X="6" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>AudioItem.cs</FileName>
@@ -73,7 +73,7 @@
   <Class Name="ConsoleApplication44.Mediateka" BaseTypeListCollapsed="true">
     <Position X="11.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACIAAEBAAAQAABAQAAAQBAQAAAAAAAAAAAAAAABQIAA=</HashCode>
+      <HashCode>ACIAAEBAAAQAABAQEAAQBAQAAAAAAAAAAAAAAABQIAA=</HashCode>
       <FileName>Mediateka.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
