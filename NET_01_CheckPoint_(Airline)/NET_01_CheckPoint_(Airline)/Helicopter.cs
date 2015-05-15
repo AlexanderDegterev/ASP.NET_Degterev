@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint__Airline_
 {
-    public interface IHelicopter : IAirline
+    class Helicopter : Airline, IHelicopter
     {
     }
 }

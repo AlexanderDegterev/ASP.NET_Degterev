@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint__Airline_
 {
-    abstract class Plane : Airline, IPlane
+    public abstract class Plane : Airline, IPlane
     {
         private ushort crew;
         public ushort Crew

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint__Airline_
 {
-    interface IAirline
+    public interface IAirline
     {
         String Name {get; set;}
         DateTime ProductionDate {get; set;}

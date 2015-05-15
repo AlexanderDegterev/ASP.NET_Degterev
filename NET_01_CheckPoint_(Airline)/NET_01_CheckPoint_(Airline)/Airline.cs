@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint__Airline_
 {
-    abstract class Airline : IAirline
+    public abstract class Airline : IAirline
     {  
         private string name;
         public string Name
@@ -17,7 +17,7 @@ namespace NET_01_CheckPoint__Airline_
             }
             set
             {
-                if (name != null)
+               // if (name != null)
                 name = value;
             }
         }

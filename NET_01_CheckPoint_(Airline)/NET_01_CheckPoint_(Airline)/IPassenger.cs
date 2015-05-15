@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint__Airline_
 {
-    interface IPassenger : IPlane
+    public interface IPassenger : IPlane
     {
         int PassengersCapacity {get; set;}
         Make Make {get; set;}  // ТИП

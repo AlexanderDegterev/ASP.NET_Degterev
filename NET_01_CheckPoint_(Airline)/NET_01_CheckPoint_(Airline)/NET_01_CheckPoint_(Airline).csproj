@@ -42,12 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Airline.cs" />
+    <Compile Include="AirlineComparerByProductionDate.cs" />
+    <Compile Include="AirPort.cs" />
+    <Compile Include="Fleighter.cs" />
+    <Compile Include="Helicopter.cs" />
     <Compile Include="IAirline.cs" />
     <Compile Include="IFreighter.cs" />
     <Compile Include="IHelicopter.cs" />
     <Compile Include="IPassenger.cs" />
     <Compile Include="IPlane.cs" />
     <Compile Include="Make.cs" />
+    <Compile Include="Passenger.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

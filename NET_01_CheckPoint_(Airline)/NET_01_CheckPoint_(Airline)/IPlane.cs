@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint__Airline_
 {
-    interface IPlane : IAirline
+    public interface IPlane : IAirline
     {
         ushort Crew {get; set; }  //Экипаж
         int Weight {get; set; }   // Вес

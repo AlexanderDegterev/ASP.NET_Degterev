@@ -87,7 +87,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ConsoleApplication44.SerialBuilder">
-    <Position X="13" Y="0.5" Width="1.5" />
+    <Position X="13" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>QAAAAAIAAAAAgAAAAAAAEAQAAAAAAAEAAAAABAACAAA=</HashCode>
       <FileName>SerialBuilder.cs</FileName>
