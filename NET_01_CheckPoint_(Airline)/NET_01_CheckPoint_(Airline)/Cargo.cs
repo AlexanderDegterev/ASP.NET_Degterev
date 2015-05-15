@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint__Airline_
 {
-    public class Fleighter : Plane, IFreighter
+    public class Cargo : Flying, ICargo
     {
-        private int loadingcapacity;
-        public int LoadingCapacity
+
+        private int volume;
+        public int Volume
         {
             get
             {
-                return loadingcapacity;
+                return volume;
             }
             set
             {
-                if (loadingcapacity>0)
-                    loadingcapacity = value;
+                volume = value;
             }
         }
     }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint__Airline_
 {
-    class Helicopter : Airline, IHelicopter
+    class Helicopter : Flying, IHelicopter
     {
+        public TypeHelicopter TypeHelicopter {get; set;}        
     }
 }

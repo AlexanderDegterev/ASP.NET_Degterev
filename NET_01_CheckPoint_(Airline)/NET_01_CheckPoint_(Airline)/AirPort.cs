@@ -6,50 +6,50 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint__Airline_
 {
-    public class AirPort : ICollection<IAirline>
+    public class AirPort : ICollection<IFlying>
     {
-        private ICollection<IAirline> airline = new List<IAirline>();
-        #region ICollection<IAirLine>
+        private ICollection<IFlying> flying = new List<IFlying>();
+        #region ICollection<IFlying>
 
 
-        public void Add(IAirline item)
+        public void Add(IFlying item)
         {
-            airline.Add(item);
+            flying.Add(item);
         }
 
         public void Clear()
         {
-            airline.Clear();
+            flying.Clear();
         }
 
-        public bool Contains(IAirline item)
+        public bool Contains(IFlying item)
         {
-            return airline.Contains(item);
+            return flying.Contains(item);
         }
 
-        public void CopyTo(IAirline[] array, int arrayIndex)
+        public void CopyTo(IFlying[] array, int arrayIndex)
         {
-            airline.CopyTo(array, arrayIndex);
+            flying.CopyTo(array, arrayIndex);
         }
 
         public int Count
         {
-            get { return airline.Count; }
+            get { return flying.Count; }
         }
 
         public bool IsReadOnly
         {
-            get { return airline.IsReadOnly; }
+            get { return flying.IsReadOnly; }
         }
 
-        public bool Remove(IAirline item)
+        public bool Remove(IFlying item)
         {
-            return airline.Remove(item);
+            return flying.Remove(item);
         }
 
-        public IEnumerator<IAirline> GetEnumerator()
+        public IEnumerator<IFlying> GetEnumerator()
         {
-            return airline.GetEnumerator();
+            return flying.GetEnumerator();
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
@@ -58,15 +58,15 @@ namespace NET_01_CheckPoint__Airline_
         }
         #endregion
 
-        protected void Sort(IComparer<IAirline> comparer)
+        protected void Sort(IComparer<IFlying> comparer)
         {
-            var newList = airline.ToList();
+            var newList = flying.ToList();
             newList.Sort(comparer);
-            airline = newList;
+            flying = newList;
         }
         public void SortByProductionDate()
         {
-            this.Sort(new AirlineComparerByProductionDate());
+            this.Sort(new FlyingComparerByProductionDate());
         }
 
         /* public override string ToString()

@@ -5,9 +5,9 @@ using System.Text;
 
 namespace NET_01_CheckPoint__Airline_
 {
-    class AirlineComparerByProductionDate : IComparer<IAirline>
+    class FlyingComparerByProductionDate : IComparer<IFlying>
     {
-        public int Compare(IAirline x, IAirline y)
+        public int Compare(IFlying x, IFlying y)
         {
             if (x != null && y != null)
             {

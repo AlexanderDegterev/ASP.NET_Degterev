@@ -6,22 +6,8 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint__Airline_
 {
-    class Passenger : Plane, IPassenger
-    {
-        private int passengerscapacity;
-        public int PassengersCapacity
-        {
-            get
-            {
-                return passengerscapacity;
-            }
-            set
-            {
-                if (passengerscapacity > 0)
-                    passengerscapacity = value;
-            }
-        }        
-        
+    class Passenger : Flying, IPassenger
+    {        
         public Make Make { get; set; }
     }
 }

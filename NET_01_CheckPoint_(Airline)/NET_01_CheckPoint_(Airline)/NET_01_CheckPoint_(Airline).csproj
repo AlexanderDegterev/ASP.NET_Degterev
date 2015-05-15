@@ -41,21 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Airline.cs" />
-    <Compile Include="AirlineComparerByProductionDate.cs" />
+    <Compile Include="Flying.cs" />
+    <Compile Include="FlyingComparerByProductionDate.cs" />
     <Compile Include="AirPort.cs" />
-    <Compile Include="Fleighter.cs" />
+    <Compile Include="Cargo.cs" />
     <Compile Include="Helicopter.cs" />
-    <Compile Include="IAirline.cs" />
-    <Compile Include="IFreighter.cs" />
+    <Compile Include="IFlying.cs" />
+    <Compile Include="ICargo.cs" />
     <Compile Include="IHelicopter.cs" />
     <Compile Include="IPassenger.cs" />
-    <Compile Include="IPlane.cs" />
     <Compile Include="Make.cs" />
     <Compile Include="Passenger.cs" />
-    <Compile Include="Plane.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeHelicopter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

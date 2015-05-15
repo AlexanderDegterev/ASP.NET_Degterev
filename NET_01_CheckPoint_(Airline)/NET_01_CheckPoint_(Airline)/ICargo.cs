@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint__Airline_
 {
-    public interface IAirline
+    interface ICargo : IFlying
     {
-        String Name {get; set;}
-        DateTime ProductionDate {get; set;}
-        int Price {get; set; } 
+        int Volume { get; set; }
     }
 }

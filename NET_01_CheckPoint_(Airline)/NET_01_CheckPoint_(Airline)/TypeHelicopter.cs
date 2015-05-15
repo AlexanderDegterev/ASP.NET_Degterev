@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint__Airline_
 {
-    interface IFreighter : IPlane
+    public enum TypeHelicopter
     {
-        int LoadingCapacity { get; set; }
+        Passenger,
+        Cargo,
+        Medical
     }
 }
