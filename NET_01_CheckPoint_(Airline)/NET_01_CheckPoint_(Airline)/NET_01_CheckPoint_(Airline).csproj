@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Flying.cs" />
+    <Compile Include="FlyingComparerByFlyingRange.cs" />
     <Compile Include="FlyingComparerByProductionDate.cs" />
     <Compile Include="AirPort.cs" />
     <Compile Include="Cargo.cs" />

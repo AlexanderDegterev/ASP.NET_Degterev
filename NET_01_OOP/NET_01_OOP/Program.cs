@@ -15,7 +15,6 @@ namespace NET_01_OOP
             List<Truck> truck = new List<Truck>();
 
             // Создадим множество автомобилей
-            Truck[] autoArr = new Truck[5];
             truck.Add(new Truck("Toyota", "Corolla", 25000, 2015, 140, "Грузовик", 2));
             truck.Add(new Truck("Volvo", "FH12", 99000, 2014, 440,"Грузовик",3));
             truck.Add(new Truck("MAN", "550", 50000, 2013, 540,"Грузовик",2));

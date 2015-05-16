@@ -8,6 +8,6 @@ namespace NET_01_CheckPoint__Airline_
 {
     class Helicopter : Flying, IHelicopter
     {
-        public TypeHelicopter TypeHelicopter {get; set;}        
+        public TypeHelicopter TypeHelicopter { get; set; }        
     }
 }

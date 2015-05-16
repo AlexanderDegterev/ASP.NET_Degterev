@@ -68,11 +68,44 @@ namespace NET_01_CheckPoint__Airline_
         {
             this.Sort(new FlyingComparerByProductionDate());
         }
+        public void SortByFlyingRange()
+        {
+            this.Sort(new FlyingComparerByFlyingRange());
+        }
+        
 
         /* public override string ToString()
         {
             return String.Format("Марка: {0}\tМодель: {1}\tЦена: {2}\tМощьность:{3}\t  ",
                 this.Brand,this.Model,this.Price,this.Power);
         }*/
+
+        internal void PrintInfoToConsole()
+        {
+            foreach (var i in flying)
+            {
+                Console.WriteLine(i.getInfo());
+            }
+        }
+        public double TotalPassengersCapacity()
+        {
+            double sumpas = 0;
+            foreach (var i in flying)
+            {
+                sumpas += i.PassengersCapacity;
+            }
+            return sumpas;
+        }
+        public int TotalLoadingCapacity()
+        {
+            int sumLP = 0;
+            foreach (var i in flying)
+            {
+                sumLP += i.LoadingCapacity;
+            }
+            return sumLP;
+        }
+
+
     }
 }

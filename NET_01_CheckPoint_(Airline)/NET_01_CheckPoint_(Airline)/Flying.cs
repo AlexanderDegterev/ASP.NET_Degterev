@@ -9,6 +9,25 @@ namespace NET_01_CheckPoint__Airline_
     public abstract class Flying : IFlying
     {
         private string name;
+
+        public Flying(String name, DateTime productiondate, int price, ushort crew, int weight, int flyingRange, Double fuelConsumption, int passengersCapacity, int loadingCapacity)
+        {
+            this.name = name;
+            this.productiondate = productiondate;
+            this.price = price;
+            this.crew = crew;
+            this.weight = weight;
+            this.flyingRange = flyingRange;
+            this.fuelConsumption = fuelConsumption;
+            this.passengersCapacity = passengersCapacity;
+            this.loadingCapacity = loadingCapacity;
+        }
+
+        public Flying()
+        {
+            // TODO: Complete member initialization
+        }
+
         public string Name
         {
             get
@@ -147,25 +166,6 @@ namespace NET_01_CheckPoint__Airline_
         {
             return String.Format("Марка: {0}\tЦена: {1}\tДальность: {2}\tРасход:{3}\tДата: {4:d}\t Вместимость:{5}\t  Грузоподъемность:{6}\t ",
                 this.Name, this.Price, this.FlyingRange, this.FuelConsumption, this.ProductionDate, this.PassengersCapacity, this.LoadingCapacity);
-        }
-
-        
-        
-
-
-        /*List<Item> items = new List<Item>();
-                {
-                    for (int i = 1; i <= total; i++)
-                    {
-                        items.Add(new Item() { Goods = ((char)rnd.Next('b', 'z' + 1)).ToString(), Price = rnd.Next(1, 10000), Quantity = rnd.Next(1, 100) });
-                    }
-                    foreach (Item aItem in items)
-                    {
-                        sumall += aItem.Sum();
-                        Console.WriteLine("Товар:" + aItem.Goods + "  Цена:" + aItem.Price + "  Кол-во:" + aItem.Quantity + " " + aItem.Sum());
-
-                    };
-                    Console.WriteLine("Сумма всех стоимостей товаров:{0:N}", sumall);
-                }*/
+        }        
     }
 }

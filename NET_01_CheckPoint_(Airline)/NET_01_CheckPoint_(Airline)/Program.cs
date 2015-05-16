@@ -12,6 +12,24 @@ namespace NET_01_CheckPoint__Airline_
         {
             AirPort airport = new AirPort();
 
+            fillAirportWithAircrafts(airport);
+
+            Console.WriteLine("\n Вывод данных: \n");
+            airport.PrintInfoToConsole();
+            
+
+            airport.SortByProductionDate();
+            Console.WriteLine("\n Сортировка по ProductionDate");
+            airport.PrintInfoToConsole();
+            
+           
+            Console.WriteLine("\nВместимость всех Т/С: " + airport.TotalPassengersCapacity() + " пассажиров");
+            Console.WriteLine("\nОбщая грузоподъемность всех судов: " + airport.TotalLoadingCapacity() + " кг");
+
+        }
+
+        private static void fillAirportWithAircrafts(AirPort airport)
+        {
             airport.Add(new Helicopter()
             {
                 Name = "KA-226   ",
@@ -20,21 +38,23 @@ namespace NET_01_CheckPoint__Airline_
                 FlyingRange = 3000,
                 FuelConsumption = 14,
                 PassengersCapacity = 10,
-                LoadingCapacity = 8000
-                
+                LoadingCapacity = 8000,
+                TypeHelicopter = TypeHelicopter.Medical
+
             }
                 );
-            airport.Add(new Passenger()
-            {
+            airport.Add(new Passenger("Boing-777", new DateTime(2010, 01, 01), 230000,4,315000,9700,250,145,48000)
+            /*{
                 Name = "Boing-777",
                 Price = 230000,
                 ProductionDate = new DateTime(2010, 01, 01),
-                Crew = 4,                
+                Crew = 4,
                 Weight = 315000,
                 FlyingRange = 9700,
                 FuelConsumption = 250,
-                PassengersCapacity = 145
-            }
+                PassengersCapacity = 145,
+                LoadingCapacity = 48000
+            }*/
             );
             airport.Add(new Cargo()
             {
@@ -43,39 +63,11 @@ namespace NET_01_CheckPoint__Airline_
                 ProductionDate = new DateTime(2012, 02, 02),
                 FlyingRange = 9900,
                 FuelConsumption = 400,
-                PassengersCapacity = 0
+                PassengersCapacity = 0,
+                LoadingCapacity = 60000,
+                Volume = 350
             }
             );
-
-            Console.WriteLine("\n Вывод данных: \n");
-            foreach (var i in airport)
-            {                
-                Console.WriteLine(i.getInfo());
-            }
-
-            airport.SortByProductionDate();
-            Console.WriteLine("\n Сортировка по ProductionDate");
-            
-            double sumpas = 0;
-            foreach (var i in airport)
-            {
-                sumpas += i.FuelConsumption;
-
-                Console.WriteLine(i.getInfo());
-                //Console.WriteLine(i.CapacityPassenger());
-            }
-            Console.WriteLine("Sum "+ sumpas);
-        
-           /* public int CapacityPassenger()
-        {
-            ICollection<IFlying> flying = new List<IFlying>();
-            //return flying.Sum(a => a.PassengersCapacity);
-            return flying.Sum(item => item.PassengersCapacity);
-            
-        }
-            Console.WriteLine("Площадь круга равна {0:#.###}", CapacityPassenger());*/
-            
-
         }
     }
 }

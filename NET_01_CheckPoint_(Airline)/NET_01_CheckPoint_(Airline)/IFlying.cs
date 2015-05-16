@@ -17,9 +17,7 @@ namespace NET_01_CheckPoint__Airline_
         Double FuelConsumption { get; set; }  //расход топлива
         int PassengersCapacity { get; set; }  //вместимость пасссажиров
         int LoadingCapacity { get; set; }  // грузоподъемность
-        
 
         String getInfo();
-        //int CapacityPassenger();
     }
 }
