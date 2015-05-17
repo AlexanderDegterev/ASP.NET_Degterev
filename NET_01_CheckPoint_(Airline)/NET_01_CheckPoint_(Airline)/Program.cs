@@ -17,15 +17,18 @@ namespace NET_01_CheckPoint__Airline_
             Console.WriteLine("\n Вывод данных: \n");
             airport.PrintInfoToConsole();
             
-
             airport.SortByProductionDate();
-            Console.WriteLine("\n Сортировка по ProductionDate");
+            Console.WriteLine("\n Сортировка по дате производства");
             airport.PrintInfoToConsole();
-            
-           
-            Console.WriteLine("\nВместимость всех Т/С: " + airport.TotalPassengersCapacity() + " пассажиров");
+
+            airport.SortByFlyingRange();
+            Console.WriteLine("\n Сортировка по дальности полетов");
+            airport.PrintInfoToConsole();
+
+            Console.WriteLine("\nВместимость всех судов: " + airport.TotalPassengersCapacity() + " пассажиров");
             Console.WriteLine("\nОбщая грузоподъемность всех судов: " + airport.TotalLoadingCapacity() + " кг");
 
+            airport.FuelСonsumption(50,250);
         }
 
         private static void fillAirportWithAircrafts(AirPort airport)
@@ -43,8 +46,8 @@ namespace NET_01_CheckPoint__Airline_
 
             }
                 );
-            airport.Add(new Passenger("Boing-777", new DateTime(2010, 01, 01), 230000,4,315000,9700,250,145,48000)
-            /*{
+            airport.Add(new Passenger()   //("Boing-777", new DateTime(2010, 01, 01), 230000,4,315000,9700,250,145,48000)
+            {
                 Name = "Boing-777",
                 Price = 230000,
                 ProductionDate = new DateTime(2010, 01, 01),
@@ -54,7 +57,20 @@ namespace NET_01_CheckPoint__Airline_
                 FuelConsumption = 250,
                 PassengersCapacity = 145,
                 LoadingCapacity = 48000
-            }*/
+            }
+            );
+            airport.Add(new Passenger()   //("Boing-777", new DateTime(2010, 01, 01), 230000,4,315000,9700,250,145,48000)
+            {
+                Name = "SuperJet-100",
+                Price = 100000,
+                ProductionDate = new DateTime(2014, 01, 01),
+                Crew = 4,
+                Weight = 215000,
+                FlyingRange = 5600,
+                FuelConsumption = 160,
+                PassengersCapacity = 145,
+                LoadingCapacity = 48000
+            }
             );
             airport.Add(new Cargo()
             {

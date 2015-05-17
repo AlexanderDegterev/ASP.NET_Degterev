@@ -72,14 +72,6 @@ namespace NET_01_CheckPoint__Airline_
         {
             this.Sort(new FlyingComparerByFlyingRange());
         }
-        
-
-        /* public override string ToString()
-        {
-            return String.Format("Марка: {0}\tМодель: {1}\tЦена: {2}\tМощьность:{3}\t  ",
-                this.Brand,this.Model,this.Price,this.Power);
-        }*/
-
         internal void PrintInfoToConsole()
         {
             foreach (var i in flying)
@@ -104,6 +96,15 @@ namespace NET_01_CheckPoint__Airline_
                 sumLP += i.LoadingCapacity;
             }
             return sumLP;
+        }
+        public void FuelСonsumption(int startFuel, int EndFuel)
+        {
+            Console.WriteLine("\nВывод самалетов по потреблению топлива от " + startFuel + " до " + EndFuel+":");
+            foreach (var i in flying)
+            {
+                if ((i.FuelConsumption >= startFuel) && (i.FuelConsumption <= EndFuel))
+                    Console.WriteLine("\n" + i.Name);
+            }
         }
 
 

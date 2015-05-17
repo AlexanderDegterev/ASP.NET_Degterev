@@ -164,7 +164,7 @@ namespace NET_01_CheckPoint__Airline_
 
         public string getInfo()
         {
-            return String.Format("Марка: {0}\tЦена: {1}\tДальность: {2}\tРасход:{3}\tДата: {4:d}\t Вместимость:{5}\t  Грузоподъемность:{6}\t ",
+            return String.Format("Марка: {0}\nЦена: {1}\tДальность: {2}\tРасход:{3}\tДата: {4:d}\nВместимость:{5}\tГрузоподъемность:{6}\n ",
                 this.Name, this.Price, this.FlyingRange, this.FuelConsumption, this.ProductionDate, this.PassengersCapacity, this.LoadingCapacity);
         }        
     }
