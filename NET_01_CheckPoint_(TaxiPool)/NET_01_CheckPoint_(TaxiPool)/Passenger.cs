@@ -21,7 +21,6 @@ namespace NET_01_CheckPoint__TaxiStation_
             }
         }
 
-        //private TypePass typePass;
         public TypePass TypePass { get; set; }
         
     }

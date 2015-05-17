@@ -34,14 +34,55 @@ namespace NET_01_CheckPoint__TaxiStation_
         private string model;
         public string Model { get; set; }
         private int price;
-        public int Price { get; set; }
+        public int Price
+        {
+            get
+            {
+                return price;
+            }
+            set
+            {
+                Validate(value);
+                price = value;
+            }
+        }
         private DateTime yearProduction;
         public DateTime YearProduction { get; set; }
         private int fuelUsage;
-        public int FuelUsage { get; set; }  // расход типлива
+        public int FuelUsage  // расход типлива
+        {
+            get
+            {
+                return fuelUsage;
+            }
+            set
+            {
+                Validate(value);
+                fuelUsage = value;
+            }
+        }
+       
         private int speed;
-        public int Speed { get; set; }  // скорость
+        public int Speed //{ get; set; }
+        {
+            get
+            {
+                return speed;
+            }
+            set
+            {
+                Validate(value);
+                speed = value;
+            }
+        }
 
+        private void Validate(int valid)
+        {
+            if (valid <= 0)
+            {
+                throw new Exception("Не верное значение");
+            }
+        }
         public string getInfo()
         {
             return String.Format("Марка: {0}\nМодель: {1}\tЦена: {2}\tДата:{3:d}\tРасход: {4}\tСкорость:{5}\n ",
