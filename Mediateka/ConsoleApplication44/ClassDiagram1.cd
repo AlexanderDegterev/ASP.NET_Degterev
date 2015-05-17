@@ -93,6 +93,14 @@
       <FileName>SerialBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ConsoleApplication44.MediaItemComparerByReting">
+    <Position X="14" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>MediaItemComparerByReting.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Interface Name="ConsoleApplication44.IMediaItem">
     <Position X="5.75" Y="5" Width="1.5" />
     <TypeIdentifier>
