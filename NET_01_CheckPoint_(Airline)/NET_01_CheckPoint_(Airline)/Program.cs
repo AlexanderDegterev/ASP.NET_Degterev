@@ -4,34 +4,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NET_01_CheckPoint__Airline_
+namespace CheckPoint.Airline
 {
     class Program
     {
+
+        //Интерфейсы, Конструкторы, NameConvention
         static void Main(string[] args)
         {
             AirPort airport = new AirPort();
 
             fillAirportWithAircrafts(airport);
 
-            Console.WriteLine("\n Вывод данных: \n");
-            airport.PrintInfoToConsole();
+            Console.WriteLine("\n Data output: \n");
+            PrintInfoToConsole(airport);
             
             airport.SortByProductionDate();
-            Console.WriteLine("\n Сортировка по дате производства");
-            airport.PrintInfoToConsole();
+            Console.WriteLine("\n Sorting according to date of production");
+            PrintInfoToConsole(airport);
 
-            airport.SortByFlyingRange();
-            Console.WriteLine("\n Сортировка по дальности полетов");
-            airport.PrintInfoToConsole();
+            Console.WriteLine("\n Sorting according to range of flights");
+            PrintInfoToConsole(airport.SortByFlyingRange());
 
-            Console.WriteLine("\nВместимость всех судов: " + airport.TotalPassengersCapacity() + " пассажиров");
-            Console.WriteLine("\nОбщая грузоподъемность всех судов: " + airport.TotalLoadingCapacity() + " кг");
+            //Console.WriteLine("\nВместимость всех судов: " + airport.TotalPassengersCapacity() + " пассажиров");
+            Console.WriteLine("\nCapacity of all courts: " + airport.TotalPassengersCapacity2() + " passengers");
+            //Console.WriteLine("\nОбщая грузоподъемность всех судов: " + airport.TotalLoadingCapacity() + " кг");
+            Console.WriteLine("\nGeneral loading capacity of all courts: " + airport.TotalLoadingCapacity2() + " kg");
 
             airport.FuelСonsumption(50,250);
         }
 
-        private static void fillAirportWithAircrafts(AirPort airport)
+        private static void PrintInfoToConsole(ICollection<IFlying> flyings)
+        {
+            foreach (var item in flyings)
+            {
+                Console.WriteLine(item.getInfo());
+            }
+        }
+
+        private static void fillAirportWithAircrafts(AirPort airport) // вынести в отдельный класс
         {
             airport.Add(new Helicopter()
             {

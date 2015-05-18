@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NET_01_CheckPoint__Airline_
+namespace CheckPoint.Airline
 {
     public class AirPort : ICollection<IFlying>
     {
@@ -60,26 +60,21 @@ namespace NET_01_CheckPoint__Airline_
 
         protected void Sort(IComparer<IFlying> comparer)
         {
-            var newList = flying.ToList();
+            var newList = flying.ToList(); 
             newList.Sort(comparer);
-            flying = newList;
+            flying = newList;//уничтожет базовый набор
         }
         public void SortByProductionDate()
         {
             this.Sort(new FlyingComparerByProductionDate());
         }
-        public void SortByFlyingRange()
+        public ICollection<IFlying> SortByFlyingRange()
         {
-            this.Sort(new FlyingComparerByFlyingRange());
+            var sortedList = flying.OrderBy(x => x.FlyingRange).ToList();
+            return sortedList;
         }
-        internal void PrintInfoToConsole()
-        {
-            foreach (var i in flying)
-            {
-                Console.WriteLine(i.getInfo());
-            }
-        }
-        public double TotalPassengersCapacity()
+        
+        public double TotalPassengersCapacity()  //LiNQ
         {
             double sumpas = 0;
             foreach (var i in flying)
@@ -87,6 +82,11 @@ namespace NET_01_CheckPoint__Airline_
                 sumpas += i.PassengersCapacity;
             }
             return sumpas;
+        }
+        public double TotalPassengersCapacity2()
+        {
+            double totalCapacity2 = flying.Sum(fly => fly.PassengersCapacity);
+            return totalCapacity2;
         }
         public int TotalLoadingCapacity()
         {
@@ -97,16 +97,20 @@ namespace NET_01_CheckPoint__Airline_
             }
             return sumLP;
         }
-        public void FuelСonsumption(int startFuel, int EndFuel)
+        public int TotalLoadingCapacity2()
         {
-            Console.WriteLine("\nВывод самалетов по потреблению топлива от " + startFuel + " до " + EndFuel+":");
+            int totalLoadingCapacity2 = flying.Sum(x => x.LoadingCapacity);
+            return totalLoadingCapacity2;
+        }
+        public void FuelСonsumption(int startFuel, int endFuel)
+        {
+            Console.WriteLine("\nВывод самалетов по потреблению топлива от " + startFuel + " до " + endFuel+":"); // тут не должно быть
             foreach (var i in flying)
             {
-                if ((i.FuelConsumption >= startFuel) && (i.FuelConsumption <= EndFuel))
+                if ((i.FuelConsumption >= startFuel) && (i.FuelConsumption <= endFuel))
                     Console.WriteLine("\n" + i.Name);
             }
         }
-
 
     }
 }

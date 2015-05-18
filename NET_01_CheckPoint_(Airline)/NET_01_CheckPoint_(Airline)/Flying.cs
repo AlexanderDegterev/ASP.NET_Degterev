@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NET_01_CheckPoint__Airline_
+namespace CheckPoint.Airline
 {
     public abstract class Flying : IFlying
     {
         private string name;
 
-        public Flying(String name, DateTime productiondate, int price, ushort crew, int weight, int flyingRange, Double fuelConsumption, int passengersCapacity, int loadingCapacity)
+        private Flying(String name, DateTime productiondate, int price, ushort crew, int weight, int flyingRange, Double fuelConsumption, int passengersCapacity, int loadingCapacity)
         {
             this.name = name;
             this.productiondate = productiondate;
@@ -36,7 +36,6 @@ namespace NET_01_CheckPoint__Airline_
             }
             set
             {
-                // if (name != null)
                 name = value;
             }
         }
@@ -63,7 +62,7 @@ namespace NET_01_CheckPoint__Airline_
             }
             set
             {
-                Validate(value);
+                validate(value);
                 price = value;
             }
         }
@@ -115,7 +114,7 @@ namespace NET_01_CheckPoint__Airline_
             }
             set
             {
-                ValidateFuel(value);
+                validate(value);
                 fuelConsumption = value;
             }
         }
@@ -144,17 +143,14 @@ namespace NET_01_CheckPoint__Airline_
             }
         }
 
-        
-
-
-        private void Validate(int valid)
+        private void validate(int valid) 
         {
             if (valid <= 0)
             {
-                throw new Exception("Не верное значение");
+                throw new Exception("Не верное значение");  // stops application
             }
         }
-        private void ValidateFuel(double valid)
+        private void validate(double valid)
         {
             if (valid <= 0)
             {

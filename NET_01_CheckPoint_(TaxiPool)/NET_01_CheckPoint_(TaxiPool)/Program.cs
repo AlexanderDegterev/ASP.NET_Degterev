@@ -27,7 +27,7 @@ namespace NET_01_CheckPoint__TaxiStation_
 
         }
 
-        private static void FillingTransportTaxiPool(TaxiStation taxipool)
+        private static void FillingTransportTaxiPool(TaxiStation taxipool)  // out in a separate class
         {
             try
             {
