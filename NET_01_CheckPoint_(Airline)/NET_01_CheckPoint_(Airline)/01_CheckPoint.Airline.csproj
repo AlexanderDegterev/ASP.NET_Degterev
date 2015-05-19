@@ -47,10 +47,10 @@
     <Compile Include="AirPort.cs" />
     <Compile Include="Cargo.cs" />
     <Compile Include="Helicopter.cs" />
-    <Compile Include="IFlying.cs" />
-    <Compile Include="ICargo.cs" />
-    <Compile Include="IHelicopter.cs" />
-    <Compile Include="IPassenger.cs" />
+    <Compile Include="Interface\IFlying.cs" />
+    <Compile Include="Interface\ICargo.cs" />
+    <Compile Include="Interface\IHelicopter.cs" />
+    <Compile Include="Interface\IPassenger.cs" />
     <Compile Include="Make.cs" />
     <Compile Include="Passenger.cs" />
     <Compile Include="Program.cs" />

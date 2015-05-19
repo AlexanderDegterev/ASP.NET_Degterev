@@ -3,7 +3,7 @@
   <Class Name="CheckPoint.Airline.Flying">
     <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AMABAIAAAQgAgAAAEAAAABQASCA1QAAgEQAAAAAAAAA=</HashCode>
+      <HashCode>AMABAIAAAQgAgAAAEAAAABQAQCA1QAAgEQAAAAAAAAA=</HashCode>
       <FileName>Flying.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -52,28 +52,28 @@
     <Position X="10.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAgAAAEAAAAAQAQCAwQAAAAQAAAAAAAAA=</HashCode>
-      <FileName>IFlying.cs</FileName>
+      <FileName>Interface\IFlying.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="CheckPoint.Airline.IPassenger" Collapsed="true">
     <Position X="8.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
-      <FileName>IPassenger.cs</FileName>
+      <FileName>Interface\IPassenger.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="CheckPoint.Airline.ICargo" Collapsed="true">
     <Position X="10" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
-      <FileName>ICargo.cs</FileName>
+      <FileName>Interface\ICargo.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="CheckPoint.Airline.IHelicopter" Collapsed="true">
     <Position X="11.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
-      <FileName>IHelicopter.cs</FileName>
+      <FileName>Interface\IHelicopter.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="CheckPoint.Airline.Make">

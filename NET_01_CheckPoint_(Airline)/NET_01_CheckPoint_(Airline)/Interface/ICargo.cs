@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CheckPoint.Airline
 {
-    interface ICargo : IFlying
+    public interface ICargo : IFlying
     {
         int Volume { get; set; }
     }

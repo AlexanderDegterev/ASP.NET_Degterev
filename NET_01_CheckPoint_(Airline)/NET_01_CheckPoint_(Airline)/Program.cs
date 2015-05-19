@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace CheckPoint.Airline
 {
-    class Program
+    public class Program
     {
 
         //Интерфейсы, Конструкторы, NameConvention
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             AirPort airport = new AirPort();
 
-            fillAirportWithAircrafts(airport);
+            FillAirportWithAircrafts(airport);
 
             Console.WriteLine("\n Data output: \n");
             PrintInfoToConsole(airport);
@@ -38,11 +38,11 @@ namespace CheckPoint.Airline
         {
             foreach (var item in flyings)
             {
-                Console.WriteLine(item.getInfo());
+                Console.WriteLine(item.GetInfo());
             }
         }
 
-        private static void fillAirportWithAircrafts(AirPort airport) // вынести в отдельный класс
+        private static void FillAirportWithAircrafts(AirPort airport) // вынести в отдельный класс
         {
             airport.Add(new Helicopter()
             {

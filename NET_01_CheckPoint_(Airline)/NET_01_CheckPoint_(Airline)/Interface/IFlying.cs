@@ -18,6 +18,6 @@ namespace CheckPoint.Airline
         int PassengersCapacity { get; set; }  //вместимость пасссажиров
         int LoadingCapacity { get; set; }  // грузоподъемность
 
-        String getInfo();
+        String GetInfo();
     }
 }

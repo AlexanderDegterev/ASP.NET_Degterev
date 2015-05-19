@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CheckPoint.Airline
 {
-    class FlyingComparerByProductionDate : IComparer<IFlying>
+    public class FlyingComparerByProductionDate : IComparer<IFlying>
     {
         public int Compare(IFlying x, IFlying y)
         {

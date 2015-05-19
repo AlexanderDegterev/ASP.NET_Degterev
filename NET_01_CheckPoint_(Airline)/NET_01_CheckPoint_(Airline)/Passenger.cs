@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CheckPoint.Airline
 {
-    class Passenger : Flying, IPassenger
+    public class Passenger : Flying, IPassenger
     {
         public Make Make { get; set; }
     }

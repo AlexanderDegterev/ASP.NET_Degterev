@@ -8,7 +8,6 @@ namespace CheckPoint.Airline
 {
     public abstract class Flying : IFlying
     {
-        private string name;
 
         private Flying(String name, DateTime productiondate, int price, ushort crew, int weight, int flyingRange, Double fuelConsumption, int passengersCapacity, int loadingCapacity)
         {
@@ -27,7 +26,7 @@ namespace CheckPoint.Airline
         {
             // TODO: Complete member initialization
         }
-
+        private string name;
         public string Name
         {
             get
@@ -62,7 +61,7 @@ namespace CheckPoint.Airline
             }
             set
             {
-                validate(value);
+                Validate(value);
                 price = value;
             }
         }
@@ -114,7 +113,7 @@ namespace CheckPoint.Airline
             }
             set
             {
-                validate(value);
+                Validate(value);
                 fuelConsumption = value;
             }
         }
@@ -143,14 +142,14 @@ namespace CheckPoint.Airline
             }
         }
 
-        private void validate(int valid) 
+        private void Validate(int valid) 
         {
             if (valid <= 0)
             {
                 throw new Exception("Не верное значение");  // stops application
             }
         }
-        private void validate(double valid)
+        private void Validate(double valid)
         {
             if (valid <= 0)
             {
@@ -158,7 +157,7 @@ namespace CheckPoint.Airline
             }
         }
 
-        public string getInfo()
+        public string GetInfo()
         {
             return String.Format("Марка: {0}\nЦена: {1}\tДальность: {2}\tРасход:{3}\tДата: {4:d}\nВместимость:{5}\tГрузоподъемность:{6}\n ",
                 this.Name, this.Price, this.FlyingRange, this.FuelConsumption, this.ProductionDate, this.PassengersCapacity, this.LoadingCapacity);
