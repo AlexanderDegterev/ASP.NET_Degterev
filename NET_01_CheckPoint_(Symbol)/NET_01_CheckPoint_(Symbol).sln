@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET_01_CheckPoint_(Symbol)", "NET_01_CheckPoint_(Symbol)\NET_01_CheckPoint_(Symbol).csproj", "{ADE2C521-F30C-4A15-B93E-B54CE2C8B60C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckPoint_(Symbol)", "NET_01_CheckPoint_(Symbol)\CheckPoint_(Symbol).csproj", "{ADE2C521-F30C-4A15-B93E-B54CE2C8B60C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NET_01_CheckPoint__Symbol_
+namespace CheckPoint_Symbol
 {
-    interface IWord
+    public interface IWord
     {
+        string WordValue { get; set; }
+        int Lenght { get; set; }
+        
+       
+                
     }
 }

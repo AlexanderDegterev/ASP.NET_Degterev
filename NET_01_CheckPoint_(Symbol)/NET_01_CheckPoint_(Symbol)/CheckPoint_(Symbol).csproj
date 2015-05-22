@@ -7,7 +7,7 @@
     <ProjectGuid>{ADE2C521-F30C-4A15-B93E-B54CE2C8B60C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NET_01_CheckPoint__Symbol_</RootNamespace>
+    <RootNamespace>CheckPoint_Symbol</RootNamespace>
     <AssemblyName>NET_01_CheckPoint_%28Symbol%29</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -46,6 +46,7 @@
     <Compile Include="Interface\IWord.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Symbol.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
