@@ -7,10 +7,17 @@ using System.IO;
 namespace CheckPoint_Symbol
 {
     class Program
+        /*Во всех задачах с формированием текста заменять табуляции и последовательности пробелов одним пробелом.
+
+        Вывести все предложения заданного текста в порядке возрастания количества слов в каждом из них.
+        Во всех вопросительных предложениях текста найти и напеча¬тать без повторений слова заданной длины.
+        Из текста удалить все слова заданной длины, начинающиеся на согласную букву.
+        В некотором предложении текста слова заданной длины заменить указанной подстрокой, длина которой может не совпадать с длиной слова.*/
+
     {
 
 
-        static void PR1(string filename, out int c)
+        /*static void PR1(string filename, out int c)
         {
             Encoding enc = Encoding.GetEncoding(1251);
             StreamReader fr = new StreamReader(filename, enc);
@@ -31,17 +38,61 @@ namespace CheckPoint_Symbol
             //Console.WriteLine();
             Console.WriteLine("\nСимволов в тексте: {0}", p);
 
-        }
+        }*/
 
-        static void Main(string[] args)
-        {           
-
-            Encoding enc = Encoding.GetEncoding(1251);
-            StreamReader reader = new StreamReader("text2.txt", enc);
-            string line = reader.ReadLine();
+        static void Main()
+        {
+            Reader reader = new Reader();
+            //reader.Readertext();
+            //Console.WriteLine(reader.Readertext());
+            char[] charArray = reader.Readertext().ToCharArray();
             int i;
-            for (i =0; i < line.Length; i++) 
+            for (i = 0; i < charArray.Length; i++)
             {
+                Console.WriteLine(charArray[i]);//print symbols
+                // ADD TO CLASS SYMBOL
+            }
+            //string str = new string(reader.Readertext());
+            Console.WriteLine("Print text:\n " + reader.Readertext());
+            string str = reader.Readertext();
+            char raz = ' ';
+            char[] raz2 = { '.', '?', ';', ':', '!' };
+            string[] msWord = str.Split(raz2); //Split разбивает строку на массив строк, разбив строку ....
+            string[] msOffer = str.Split(raz);
+            Console.WriteLine("\nOffers in the text  : " + msWord.Length);
+            Console.WriteLine("Word in text : " + msOffer.Length);
+        }
+        
+
+            //try
+            //{
+            //    Encoding enc = Encoding.GetEncoding(1251);  //CP1251
+            //    StreamReader reader = new StreamReader("text2.txt", enc);
+            //    //string content = reader.Readline();
+            //    string content = System.IO.File.ReadAllText(@"text2.txt", enc);
+            //    Console.WriteLine("Print text:\n"+content);
+            //    char[] charArray = content.ToCharArray();
+            //    int i;
+            //    for (i = 0; i < content.Length; i++)
+            //    {
+            //        //Console.WriteLine(charArray[i]);  //print symbols
+            //        // ADD TO CLASS SYMBOL
+            //    }
+            //    string str = new string(charArray);
+            //    char raz = ' ';
+            //    char[] raz2 = { '.', '?', ';', ':', '!' };
+            //    string[] msWord = str.Split(raz2); //Split разбивает строку на массив строк, разбив строку ....
+            //    string[] msOffer = str.Split(raz);
+            //    //Console.WriteLine("Offers in the text  : " + msWord.Length);
+            //    //Console.WriteLine("Word in text : " + msOffer.Length);
+
+            //}
+
+            //catch (FileNotFoundException e)
+            //{
+            //    Console.WriteLine("ОШИБКА: " + e.Message);
+            //}
+         
 
 
 
@@ -53,7 +104,7 @@ namespace CheckPoint_Symbol
                 currentLine.Length = 0;
                 continue;*/
 
-            char[] ms = new char[c];
+            /*char[] ms = new char[c];
             int i = 0;
             while (!reader.EndOfStream)
             {
@@ -74,10 +125,10 @@ namespace CheckPoint_Symbol
             {
                 Console.WriteLine(n + "|");
             }
-        }
+        }*/
         
         
-        static void Co(int c)
+        /*static void Co(int c)
         {
             Encoding enc = Encoding.GetEncoding(1251);
             StreamReader reader = new StreamReader("text2.txt", enc);
@@ -103,7 +154,7 @@ namespace CheckPoint_Symbol
             Console.WriteLine();   //   Console.Write();
             /*  foreach (string s in mstp)
                   Console.WriteLine("\n|{0}|",s);*/
-            for (int j = 1; j <= msWord.Length; j++)
+            /*for (int j = 1; j <= msWord.Length; j++)
             {
 
                 Console.WriteLine("\n{1}|{0}|", msWord[j - 1], j);
@@ -112,6 +163,6 @@ namespace CheckPoint_Symbol
             foreach (string p in msWord.Reverse())
                 Console.Write("{0}. ", p);
             reader.Close();
-        }
+        }*/
     }
 }

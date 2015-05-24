@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CheckPoint_Symbol
 {
-    interface IOffer
+    interface IOffer : IWord
     {
     }
 }
