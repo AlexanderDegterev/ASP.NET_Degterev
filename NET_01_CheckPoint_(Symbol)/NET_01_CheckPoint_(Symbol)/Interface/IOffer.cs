@@ -8,5 +8,6 @@ namespace CheckPoint_Symbol
 {
     interface IOffer : IWord
     {
+        int CountWord { get; set; }
     }
 }

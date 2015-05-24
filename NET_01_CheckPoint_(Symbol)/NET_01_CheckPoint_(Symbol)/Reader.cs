@@ -9,22 +9,42 @@ namespace CheckPoint_Symbol
 {
     public class Reader
     {
-        public string Readertext()
+        public void ReadertextOriginal(String filename)
         {
-            //try
-            //{
-                Encoding enc = Encoding.GetEncoding(1251);  //CP1251
-                StreamReader reader = new StreamReader("text2.txt", enc);
-                //string content = reader.Readline();
-                string content = System.IO.File.ReadAllText(@"text2.txt", enc);
-                //Console.WriteLine("Print text:\n" + content);
-                //char[] charArray = content.ToCharArray();
-                return content;
-            //catch (FileNotFoundException e)
-            //{
-            //    Console.WriteLine("ОШИБКА: " + e.Message);
-            //}
+            string content = ReadFileToString(filename);
+            Console.WriteLine("Print text (Original):\n" + content);
         }
+
+        private static string ReadFileToString(String filename)
+        {
+            try
+            {
+                Encoding enc = Encoding.GetEncoding(1251);  //CP1251
+                string content = System.IO.File.ReadAllText(filename, enc);
+                return content;
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+                return "error";
+            }
+        }
+
+        private static string RemoveRedundantSymbols(String target)
+        {
+            target = System.Text.RegularExpressions.Regex.Replace(target, @"\s+", " ");
+            // content = content.Replace("  ", " ");
+            target = target.Replace("\r\n", " ");
+            target = target.Trim();
+            //Console.WriteLine("Print text:\n" + content);
+            return target;
+        }
+        public string Readertext(String filename)
+        {
+            string content = ReadFileToString(filename);
+            return RemoveRedundantSymbols(content);
+        }
+
     }
 }
 
