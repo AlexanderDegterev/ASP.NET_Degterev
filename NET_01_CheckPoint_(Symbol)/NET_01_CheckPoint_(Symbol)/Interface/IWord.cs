@@ -10,6 +10,7 @@ namespace CheckPoint_Symbol
     {
         string WordValue { get; set; }
         int Lenght { get; set; }
+        bool startsWithLetter { get; set; }  // SOGLASNAYA
         
        
                 

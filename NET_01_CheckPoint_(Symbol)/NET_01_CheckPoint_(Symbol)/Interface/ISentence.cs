@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace CheckPoint_Symbol
 {
-    interface IOffer : IWord
+    public interface ISentence : IWord
     {
-        int CountWord { get; set; }
+        string sentence { get; set; }
+        int wordsCounter { get; set; }
+        bool isQuestion { get; set; }
     }
 }

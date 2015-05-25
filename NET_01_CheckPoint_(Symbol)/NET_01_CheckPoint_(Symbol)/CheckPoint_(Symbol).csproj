@@ -41,12 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\IOffer.cs" />
+    <Compile Include="Interface\ISentence.cs" />
     <Compile Include="Interface\ISymbol.cs" />
     <Compile Include="Interface\IWord.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader.cs" />
+    <Compile Include="Sentence.cs" />
     <Compile Include="Symbol.cs" />
     <Compile Include="Textual.cs" />
   </ItemGroup>

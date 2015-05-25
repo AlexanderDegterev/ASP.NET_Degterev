@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace CheckPoint_Symbol
 {
@@ -38,24 +39,37 @@ namespace CheckPoint_Symbol
             string str = reader.Readertext("text2.txt");
             char endWord = ' ';
             char[] endSentence = { '.', '?', '!' };  //Sentence MSDN
-            string[] word = str.Split(endWord);
-            string[] sentence = str.Split(endSentence); //Split разбивает строку на массив строк, разбив строку ....
+            //                ("Mr.", "Mrs.", "Miss" или "Ms.")
+            string[] wordParsing = str.Split(endWord);
+            string[] sentenceParsing = str.Split(endSentence); //Split разбивает строку на массив строк, разбив строку ....
             Console.WriteLine("\nSymbols in text : " + textual.Count());
-            Console.WriteLine("\nOffers in the text  : " + sentence.Length);
-            Console.WriteLine("Word in text : " + word.Length);
+            Console.WriteLine("\nOffers in the text  : " + sentenceParsing.Length);
+            Console.WriteLine("Word in text : " + wordParsing.Length);
             //Encoding enc = Encoding.GetEncoding(1251);  //CP1251
             //string content = System.IO.File.ReadAllText(@"text2.txt", enc);
             
-            List<string> list = new List<string>(sentence); // collection sentence
+            List<string> list = new List<string>(sentenceParsing); // collection sentence
             list = list.OrderBy(x => x.Length).ToList();
-            Console.WriteLine(string.Join("\n ", list));
+            Console.WriteLine(string.Join("\n ", list));            
 
+            string pattern = @"(\.)|(\?)|(\!)";
 
-            /*Sentance sentance = new Sentance();
+            string[] substrings = Regex.Split(str, pattern);  
+            foreach (string match in substrings)
+            {
+                Sentence sentence = new Sentence();
+                sentence.add(new Sentence());
+                {
+                    Sentence = list;
+                }
+                Console.WriteLine("'{0}'", match);
+            }
+
+            /*Sentence sentence = new Sentence();
             int wordsCounter = 0;
             bool isQuestion = false;
-            Word word = new Word();
-            bool startsWithLetter = false;
+            //Word wordParsing = new Word();
+            //bool startsWithLetter = false;
 
             for (int i = 0; i < charArray.Length; i++)
             {
@@ -78,7 +92,7 @@ namespace CheckPoint_Symbol
                     addSentanceTo Story
                     sentance = new Sentance();
                     wordsCounter = 0;
-                    word = new Word();
+                    wordParsing = new Word();
                     startsWithLetter = false;
                 }
 
