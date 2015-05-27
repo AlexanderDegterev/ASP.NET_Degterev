@@ -6,55 +6,14 @@ using System.Threading.Tasks;
 
 namespace CheckPoint_Symbol
 {
-    public class Sentence :ICollection<ISentence>
+    public class Sentence : ISentence
     {
-        private ICollection<ISentence> sentence = new List<ISentence>();
-
-        #region ICollection<ISentence>
-        public void Add(ISentence item)
-        {
-            sentence.Add(item);
-        }
-
-        public void Clear()
-        {
-            sentence.Clear();
-        }
-
-        public bool Contains(ISentence item)
-        {
-            return sentence.Contains(item);
-        }
-
-        public void CopyTo(ISentence[] array, int arrayIndex)
-        {
-            sentence.CopyTo(array, arrayIndex);
-        }
-
-        public int Count
-        {
-            get { return sentence.Count; }
-        }
-
-        public bool IsReadOnly
-        {
-            get { return sentence.IsReadOnly; }
-        }
-
-        public bool Remove(ISentence item)
-        {
-            return sentence.Remove(item);
-        }
-
-        public IEnumerator<ISentence> GetEnumerator()
-        {
-            return sentence.GetEnumerator();
-        }
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return this.GetEnumerator();
-        }
-        #endregion
+        public string sentence { get; set; } // коллекция слов
+        public int wordsCounter { get; set; }
+        public bool isQuestion { get; set; }
+        //public string WordValue { get;set; }
+        //public int Lenght { get;set; }
+        //public bool startsWithLetter { get;set; }
+        //public char SymbolValue { get; set; }
     }
 }

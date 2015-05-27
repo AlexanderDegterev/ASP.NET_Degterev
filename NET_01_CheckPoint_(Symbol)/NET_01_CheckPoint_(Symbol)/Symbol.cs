@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CheckPoint_Symbol
 {
-    public class Symbol :ISymbol
+    public class Symbol : ISentence
     {
         public char SymbolValue { get; set; }
 
@@ -17,6 +17,11 @@ namespace CheckPoint_Symbol
         public Symbol()
         {
         }
+        public string sentence { get; set; }       
+
+        public int wordsCounter { get; set; }
+
+        public bool isQuestion { get; set; }
         
     }
 }

@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace CheckPoint_Symbol
 {
-    public interface ISentence 
+    class Parsing
     {
-        string sentence { get; set; }
-        int wordsCounter { get; set; }
-        bool isQuestion { get; set; }
     }
 }

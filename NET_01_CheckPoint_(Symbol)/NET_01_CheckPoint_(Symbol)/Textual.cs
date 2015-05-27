@@ -3,52 +3,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace CheckPoint_Symbol
 {
-    public class Textual : ICollection<ISymbol>
+    public class Textual : ICollection<ISentence>
     {
-        private ICollection<ISymbol> symbols = new List<ISymbol>();
+        private ICollection<ISentence> sentence = new List<ISentence>();
 
-        #region ICollection<ISymbol>
-        public void Add(ISymbol item)
+        #region ICollection<ISentence>
+        public void Add(ISentence item)
         {
-            symbols.Add(item);
+            sentence.Add(item);
         }
 
         public void Clear()
         {
-            symbols.Clear();
+            sentence.Clear();
         }
 
-        public bool Contains(ISymbol item)
+        public bool Contains(ISentence item)
         {
-            return symbols.Contains(item);
+            return sentence.Contains(item);
         }
 
-        public void CopyTo(ISymbol[] array, int arrayIndex)
+        public void CopyTo(ISentence[] array, int arrayIndex)
         {
-            symbols.CopyTo(array, arrayIndex);
+            sentence.CopyTo(array, arrayIndex);
         }
 
         public int Count
         {
-            get { return symbols.Count; }
+            get { return sentence.Count; }
         }
 
         public bool IsReadOnly
         {
-            get { return symbols.IsReadOnly; }
+            get { return sentence.IsReadOnly; }
         }
 
-        public bool Remove(ISymbol item)
+        public bool Remove(ISentence item)
         {
-            return symbols.Remove(item);
+            return sentence.Remove(item);
         }
 
-        public IEnumerator<ISymbol> GetEnumerator()
+        public IEnumerator<ISentence> GetEnumerator()
         {
-            return symbols.GetEnumerator();
+            return sentence.GetEnumerator();
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
@@ -56,5 +57,10 @@ namespace CheckPoint_Symbol
             return this.GetEnumerator();
         }
         #endregion
+
+        //public void Insert(int p, ISentence item)
+        //{
+        //    sentence.Insert(p, item);
+        //}
     }
 }

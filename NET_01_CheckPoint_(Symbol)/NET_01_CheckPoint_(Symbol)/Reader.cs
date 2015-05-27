@@ -9,10 +9,10 @@ namespace CheckPoint_Symbol
 {
     public class Reader
     {
-        public void ReadertextOriginal(String filename)
+        public string ReadOriginal(String filename)
         {
-            string content = ReadFileToString(filename);
-            Console.WriteLine("Print text (Original):\n" + content);
+            return ReadFileToString(filename);
+            
         }
 
         private static string ReadFileToString(String filename)
@@ -39,7 +39,7 @@ namespace CheckPoint_Symbol
             //Console.WriteLine("Print text:\n" + content);
             return target;
         }
-        public string Readertext(String filename)
+        public string ReadOptimized(String filename)
         {
             string content = ReadFileToString(filename);
             return RemoveRedundantSymbols(content);
