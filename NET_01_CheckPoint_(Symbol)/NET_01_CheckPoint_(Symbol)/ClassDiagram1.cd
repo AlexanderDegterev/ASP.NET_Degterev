@@ -3,7 +3,7 @@
   <Class Name="CheckPoint_Symbol.Sentence">
     <Position X="4.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAQAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAACAAAAAQAAEAAAAAAAAIAAAA=</HashCode>
       <FileName>Sentence.cs</FileName>
       <NewMemberFileName>Textual.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -17,7 +17,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CheckPoint_Symbol.Textual">
-    <Position X="7.25" Y="0.5" Width="1.5" />
+    <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACIAAAAAAAAAABAQAAAABAQAAAAAAAAAAAAAAAJQIAA=</HashCode>
       <FileName>Textual.cs</FileName>
@@ -25,7 +25,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CheckPoint_Symbol.Lexicon">
-    <Position X="9" Y="2" Width="1.5" />
+    <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACIAAAABAAAAABAQAAAABAQAAAAAAAAAAAAAAABQIAA=</HashCode>
       <FileName>Lexicon.cs</FileName>
@@ -33,22 +33,22 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CheckPoint_Symbol.Word">
-    <Position X="10.75" Y="3.75" Width="1.5" />
+    <Position X="4.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAACAAAAAAAAAAAAAEAEAAAgAAAgAAAAA=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAgAAAAgAAAAEAAAgAAAgAAAAA=</HashCode>
       <FileName>Word.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="CheckPoint_Symbol.ISymbol">
-    <Position X="3.75" Y="2.75" Width="1.5" />
+    <Position X="2.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interface\ISymbol.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="CheckPoint_Symbol.IWord">
-    <Position X="1" Y="2.75" Width="1.5" />
+    <Position X="0.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAgAAAgAAAAA=</HashCode>
       <FileName>Interface\IWord.cs</FileName>

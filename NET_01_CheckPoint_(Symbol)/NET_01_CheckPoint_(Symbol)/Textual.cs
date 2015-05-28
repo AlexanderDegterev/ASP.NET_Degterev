@@ -58,9 +58,11 @@ namespace CheckPoint_Symbol
         }
         #endregion
 
-        //public void Insert(int p, ISentence item)
-        //{
-        //    sentence.Insert(p, item);
-        //}
+        public ICollection<ISentence> SortByFlyingRange()
+        {
+            var sortedList = sentence.OrderBy(x => x.FlyingRange).ToList();
+            return sortedList;
+        }
+
     }
 }
