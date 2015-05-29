@@ -58,11 +58,11 @@ namespace CheckPoint_Symbol
         }
         #endregion
 
-        public ICollection<ISentence> SortByFlyingRange()
-        {
-            var sortedList = sentence.OrderBy(x => x.FlyingRange).ToList();
-            return sortedList;
-        }
+        //public ICollection<ISentence> SortByFlyingRange()
+        //{
+        //    var sortedList = sentence.OrderBy(x => x.FlyingRange).ToList();
+        //    return sortedList;
+        //}
 
     }
 }

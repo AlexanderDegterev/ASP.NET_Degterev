@@ -51,41 +51,45 @@ namespace CheckPoint_Symbol
             // Patterns for check
             string patternAll = @"[a-zA-Z0-9]|[\+\-\/\@\#\%\^\*\(\)\;\:\'\<\>]$";
             string patternEndSentence = @"(\.)|(\?)|(\!)";
-            string patternEndWord = " ";
-            char endWord = ' ';
             char patternQuestion = '?';
             char[] endSentence = { '.', '?', '!' };  //Sentence MSDN
+            char[] patternEndWord = { ' ', ':', ';' };
             // End patterns for check
 
             Textual textual = new Textual();
             //Sentence sentence = new Sentence();
-            int wordsCounter = 0;
             bool isQuestion = false;
-            //List<Word> word = new List<Word>();
             List<Sentence> sentence = new List<Sentence>();
             Lexicon lexicon = new Lexicon();
             bool startsWithLetter = false;
+
             char[] charArray = textCorrected.ToCharArray();
-            //for (int i = 0; i < charArray.Length; i++)
-            //{
             string current = textCorrected;
             string[] split = Regex.Split(current, patternEndSentence, RegexOptions.IgnoreCase | RegexOptions.Compiled);
             for (int i = 0; i < split.Length; i++)
             {
                 int splitLenght = split.Length;
-                if ((split[i + 1].All(x => x == patternQuestion)) | ((i+3) != splitLenght))
+                //if (split[i] = endSentence.GetValue(i))
+                //foreach (Match match in Regex.Matches(split[i + 1], pattern1))
+                if (endSentence.Any(x=>split[i+1].Contains(x)))
+                //if (split[i + 1].Any(x => x.Contains(endSentence)) | ((i + 3) != splitLenght))
                 //if (split[i] = vopros)
                 {
                     string stringPlusQuestion = split[i] + split[i+1];
-                    sentence.Add(new Sentence(stringPlusQuestion));
-                    Console.WriteLine(" " + stringPlusQuestion);
+                    string[] wordsInText = stringPlusQuestion.Split(patternEndWord);
+                    //Console.WriteLine("Word in text: {0}", wordsInText.Length);
+                    sentence.Add(new Sentence(stringPlusQuestion, wordsInText.Length));
+                    //Console.WriteLine(" " + stringPlusQuestion);
                     i++;
                     continue;
                 }
                 else
                 {
-                    sentence.Add(new Sentence(split[i]));
-                    Console.WriteLine(" " + split[i]);
+                    string stringStandart = split[i];
+                    string[] wordsInText = stringStandart.Split(patternEndWord);
+                    //Console.WriteLine("Word in text: {0}", stringStandart);
+                    sentence.Add(new Sentence(stringStandart, wordsInText.Length));
+                    //Console.WriteLine(" " + split[i]);
                     continue;
                 }
             }
