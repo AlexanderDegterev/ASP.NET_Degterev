@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CheckPoint_Symbol
+namespace ParsingText
 {
     public interface ISymbol : ISentence
     {

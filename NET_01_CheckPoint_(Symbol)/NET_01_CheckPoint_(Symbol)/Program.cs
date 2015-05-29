@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace CheckPoint_Symbol
+namespace ParsingText
 {
     class Program
     {/*Во всех задачах с формированием текста заменять табуляции и последовательности пробелов одним пробелом.
@@ -32,18 +32,9 @@ namespace CheckPoint_Symbol
             Console.WriteLine("Print text(corrected):\n " + textCorrected);
             Console.WriteLine("\n ");
 
-
-            // Patterns for check
-            string patternAll = @"[a-zA-Z0-9]|[\+\-\/\@\#\%\^\*\(\)\;\:\'\<\>]$";
-            string patternEndSentence = @"(\.)|(\?)|(\!)";
-            char patternQuestion = '?';
-            char[] endSentence = { '.', '?', '!' };  //Sentence MSDN
-            
-            // End patterns for check
-
             List<ISentence> sentence = Reader.ParseString(textCorrected);
             
-            //1   add sort
+            //1   add sort(LINQ)
             var wordCountSort = from element in sentence
                           orderby element.wordsCount
                           select element;
@@ -56,9 +47,6 @@ namespace CheckPoint_Symbol
 
             //foreach (ISentence a in sentence)
                // Console.WriteLine(a);
-            
-
-
             }
         //2
         // из List sentences получить только вопросительные предложения

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
-namespace CheckPoint_Symbol
+namespace ParsingText
 {
     public class Story : ICollection<ISentence>
     {
