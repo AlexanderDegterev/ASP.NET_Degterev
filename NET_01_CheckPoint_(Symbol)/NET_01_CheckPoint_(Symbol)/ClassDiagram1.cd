@@ -3,7 +3,7 @@
   <Class Name="CheckPoint_Symbol.Sentence">
     <Position X="4.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAACAAAAAQAAEAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAACAAAAAQAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>Sentence.cs</FileName>
       <NewMemberFileName>Textual.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -16,7 +16,7 @@
       <FileName>Parsing.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CheckPoint_Symbol.Textual">
+  <Class Name="CheckPoint_Symbol.Story">
     <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACIAAAAAAAAAABAQAAAABAQAAAAAAAAAAAAAAAJQIAA=</HashCode>

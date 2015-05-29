@@ -9,7 +9,8 @@ namespace CheckPoint_Symbol
     public interface ISentence 
     {
         string sentence { get; set; }
-        int wordsCounter { get; }
+        string[] words { get; }
+        int wordsCount { get; }
         bool isQuestion { get; set; }
     }
 }

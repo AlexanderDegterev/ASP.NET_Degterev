@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 
 namespace CheckPoint_Symbol
 {
-    public class Textual : ICollection<ISentence>
+    public class Story : ICollection<ISentence>
     {
         private ICollection<ISentence> sentence = new List<ISentence>();
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CheckPoint_Symbol
 {
-    public class Symbol : ISentence
+    public class Symbol
     {
         public char SymbolValue { get; set; }
 
