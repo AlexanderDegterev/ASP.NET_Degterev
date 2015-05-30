@@ -7,7 +7,7 @@
     <ProjectGuid>{ADE2C521-F30C-4A15-B93E-B54CE2C8B60C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CheckPoint_Symbol</RootNamespace>
+    <RootNamespace>ParsingText</RootNamespace>
     <AssemblyName>NET_01_CheckPoint_%28Symbol%29</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,11 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="iCollection.cs" />
+    <Compile Include="Interface\iCollection.cs" />
     <Compile Include="Interface\ISentence.cs" />
     <Compile Include="Interface\ISymbol.cs" />
     <Compile Include="Interface\IWord.cs" />
-    <Compile Include="Interface\IPunctuationMark.cs" />
     <Compile Include="Lexicon.cs" />
     <Compile Include="Parsing.cs" />
     <Compile Include="Program.cs" />

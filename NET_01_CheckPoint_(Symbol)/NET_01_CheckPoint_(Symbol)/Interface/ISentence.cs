@@ -9,7 +9,7 @@ namespace ParsingText
     public interface ISentence 
     {
         string sentence { get; set; }
-        string[] words { get; }
+        List<IWord> words { get; set; }
         int wordsCount { get; }
         bool isQuestion { get; set; }
     }

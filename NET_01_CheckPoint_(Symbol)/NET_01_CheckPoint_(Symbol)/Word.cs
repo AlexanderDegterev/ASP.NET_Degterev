@@ -6,20 +6,33 @@ using System.Threading.Tasks;
 
 namespace ParsingText
 {
-    public class Word :IWord
+    public class Word : IWord
     {
-        public char FirstChar{ get{return word[0];}}
-        string word;
-        public string WordValue { get; set; }
-        public int Lenght { get; set; }
-        public bool startsWithLetter { get; set; }
-        private char current;
+        public char firstChar { get; set; }//{ get { return wordValue[0]; } }
+        public string wordValue { get; set; }
+        public int lenght { get; set; }
+        //public bool startsWithLetter { get; set; }
 
-        public Word(string source)
+        //public Word() { }
+
+        //public Word()
+        //{
+        //    this.firstChar = firstChar;
+        //    this.wordValue = wordValue;
+        //    this.lenght = lenght;
+        //    this.startsWithLetter = startsWithLetter;
+        //}
+
+        public Word(string wordValue)
+            
         {
-            this.word = source;
-        }    
-     
+            this.firstChar = wordValue.Length > 0 ? wordValue[0] : '\0' ;
+            this.wordValue = wordValue;
+            this.lenght = wordValue.Length;
+            //this.startsWithLetter = startsWithLetter;
+
+        }
+        
     }
     
 }

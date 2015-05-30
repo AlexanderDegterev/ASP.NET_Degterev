@@ -47,6 +47,7 @@ namespace ParsingText
         }
 
         static string patternEndSentence = @"(\.)|(\?)|(\!)";
+        static string patternEndWord = @"\W+";
         static char patternQuestion = '?';
 
         public static List<ISentence> ParseString(String text)
@@ -56,9 +57,6 @@ namespace ParsingText
             int splitLenght = split.Length;
             for (int i = 0; i < splitLenght; i++)
             {
-                //if (split[i] = endSentence.GetValue(i))
-                //foreach (Match match in Regex.Matches(split[i + 1], pattern1))
-                //if (endSentence.Any(x=>split[i+1].Contains(x))) 
                 if (split[i].Length == 1)
                 {
                     continue; // we got divider
@@ -69,17 +67,28 @@ namespace ParsingText
                     sentenceDivider = split[i + 1];
                     
                 }
-               
-                
                 string sentenceAsString = (split[i] + sentenceDivider).Trim();
-
-                bool isCurrentQuestion = sentenceDivider.All(x => x == patternQuestion);
-                sentences.Add(new Sentence(sentenceAsString, isCurrentQuestion));
-
-
-
+                bool isCurrentQuestion = patternQuestion.ToString().Equals(sentenceDivider);
+                ISentence current = new Sentence(sentenceAsString, isCurrentQuestion);
+                current.words = parseSentence(sentenceAsString);
+                sentences.Add(current);
             }
             return sentences;
+        }
+
+        public static List<IWord> parseSentence(String sentence)
+        {
+            List<IWord> words = new List<IWord>();
+            string[] splitWords = Regex.Split(sentence, patternEndWord, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            int splitWor = splitWords.Length;
+            for (int x = 0; x < splitWor; x++)
+            {
+                if (splitWords[x].Length > 0)
+                {
+                   words.Add(new Word(splitWords[x]));
+                }
+            }
+            return words;
         }
 
     }

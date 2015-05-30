@@ -8,11 +8,11 @@ namespace ParsingText
 {
     public interface IWord 
     {
-        string WordValue { get; set; }
-        int Lenght { get; set; }
-        bool startsWithLetter { get; set; }  // SOGLASNAYA
+        char firstChar { get; set; }
+        string wordValue { get; set; }
+        int lenght { get; set; }
+        //bool startsWithLetter { get; set; }  // SOGLASNAYA
+
         
-       
-                
     }
 }
