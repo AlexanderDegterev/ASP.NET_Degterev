@@ -41,10 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\iCollection.cs" />
     <Compile Include="Interface\ISentence.cs" />
     <Compile Include="Interface\IWord.cs" />
-    <Compile Include="Lexicon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader.cs" />

@@ -8,9 +8,9 @@ namespace ParsingText
 {
     public interface ISentence 
     {
-        string sentence { get; set; }
-        List<IWord> words { get; set; }
-        int wordsCount { get; }
-        bool isQuestion { get; set; }
+        string SentenceStr { get; set; }
+        List<IWord> Words { get; set; }
+        int WordsCount { get; }
+        bool IsQuestion { get; set; }
     }
 }

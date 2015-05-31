@@ -55,7 +55,7 @@ namespace ParsingText
         private static void Task1(List<ISentence> sentence)
         {
             //1   add sort(LINQ)
-            IEnumerable<ISentence> query = sentence.OrderBy(x => x.wordsCount);
+            IEnumerable<ISentence> query = sentence.OrderBy(x => x.WordsCount);
             /*var wordCountSort = from element in sentence
                           orderby element.wordsCount
                           select element;*/
@@ -70,13 +70,13 @@ namespace ParsingText
         private static void Task2(List<ISentence> sentence)
         {
             IEnumerable<ISentence> query2 = from element in sentence
-                                            where element.isQuestion == true
+                                            where element.IsQuestion == true
                                             select element;
             ISet<IWord> words = GetUniqueWords(query2, CountSymbol);
             Console.WriteLine("TASK 2 :start words from questions (6 symbols): \n");
             foreach (IWord item in words)
             {
-                Console.WriteLine(item.wordValue);
+                Console.WriteLine(item.WordValue);
             }
             Console.WriteLine("end words from questions (6 symbols): \n");
         }
@@ -111,7 +111,7 @@ namespace ParsingText
         {
             var rand = new Random();
             var randomSentence = sentence[rand.Next(sentence.Count)];
-            return randomSentence.sentence;
+            return randomSentence.SentenceStr;
                  
         }
 
@@ -121,7 +121,7 @@ namespace ParsingText
             foreach (IWord item in words)
             
             {
-                original = original.Replace(item.wordValue, newChars);
+                original = original.Replace(item.WordValue, newChars);
             }
             return original;
         }
@@ -135,9 +135,9 @@ namespace ParsingText
                 //foreach (char x in vowels)
                 for (int i = 0; i < vowels.Length; i++)
                 {
-                    if (vowels.Contains(item.firstChar))
+                    if (vowels.Contains(item.FirstChar))
                     {
-                        original = original.Replace(item.wordValue, newChars);
+                        original = original.Replace(item.WordValue, newChars);
                     }
                 }
             }
@@ -149,9 +149,9 @@ namespace ParsingText
             ISet<IWord> words = new HashSet<IWord>();
             foreach (var value in sentences)
             {
-                foreach (IWord word in value.words)
+                foreach (IWord word in value.Words)
                 {
-                    if (word.lenght == length)
+                    if (word.Lenght == length)
                     {
                         words.Add(word);
                     }

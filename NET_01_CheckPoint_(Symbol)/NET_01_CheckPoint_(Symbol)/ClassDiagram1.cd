@@ -9,14 +9,6 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ParsingText.Lexicon">
-    <Position X="10.5" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ACIAAAABAAAAABAQAAAABAQAAAAAAAAAAAAAAABQIAA=</HashCode>
-      <FileName>Lexicon.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="ParsingText.Word">
     <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>

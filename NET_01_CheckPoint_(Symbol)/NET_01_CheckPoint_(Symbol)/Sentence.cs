@@ -8,30 +8,60 @@ namespace ParsingText
 {
     public class Sentence : ISentence
     {
-        public string sentence { get; set; } 
-        public List<IWord> words { get; set;  }
-        public int wordsCount { get
+        private string sentenceStr;
+        public string SentenceStr
         {
-            return  words == null ? 0 : words.Count;
+            get
+            {
+                return sentenceStr;
+            }
+            set
+            {
+                sentenceStr = value;
+            }
         }
+        private List<IWord> words;
+        public List<IWord> Words 
+        { 
+            get
+            { 
+                return words;
+            }
+            set
+            {
+                words = value;
+            }
         }
-        public bool isQuestion { get; set; }
+        public int WordsCount 
+        { 
+            get
+            {
+                return  Words == null ? 0 : Words.Count;
+            }
+        }
+        private bool isQuestion;
+        public bool IsQuestion 
+        {
+            get
+            {
+                return isQuestion;
+            }
+            set
+            {
+                isQuestion = value;
+            }
+        }
 
         char[] patternEndWord = { ' ', ':', ';' };
 
         public Sentence(string sentence, bool isQuestion)
         {
-            this.sentence = sentence;
-            this.isQuestion = isQuestion;
+            this.SentenceStr = sentence;
+            this.IsQuestion = isQuestion;
         }
         public override string ToString()
         {
-            return String.Format("Sentence: {0}\n Word: {1}\n ", this.sentence, words == null ? 0 : words.Count);
+            return String.Format("Sentence: {0}\n Word: {1}\n ", this.SentenceStr, Words == null ? 0 : Words.Count);
         }
-
-
-
-
-        
     }
 }

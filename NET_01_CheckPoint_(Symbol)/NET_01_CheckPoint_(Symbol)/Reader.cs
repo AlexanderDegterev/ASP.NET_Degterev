@@ -13,7 +13,6 @@ namespace ParsingText
         public string ReadOriginal(String filename)
         {
             return ReadFileToString(filename);
-            
         }
 
         private static string ReadFileToString(String filename)
@@ -65,12 +64,11 @@ namespace ParsingText
                 if (i + 1 < splitLenght)
                 {
                     sentenceDivider = split[i + 1];
-                    
                 }
                 string sentenceAsString = (split[i] + sentenceDivider).Trim();
                 bool isCurrentQuestion = patternQuestion.ToString().Equals(sentenceDivider);
                 ISentence current = new Sentence(sentenceAsString, isCurrentQuestion);
-                current.words = ParseSentence(sentenceAsString);
+                current.Words = ParseSentence(sentenceAsString);
                 sentences.Add(current);
             }
             return sentences;
@@ -90,7 +88,6 @@ namespace ParsingText
             }
             return words;
         }
-
     }
 }
 
