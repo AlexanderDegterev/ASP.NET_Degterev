@@ -16,7 +16,6 @@ namespace ParsingText
         }
         }
         public bool isQuestion { get; set; }
-        //public bool startsWithLetter { get;set; }
 
         char[] patternEndWord = { ' ', ':', ';' };
 

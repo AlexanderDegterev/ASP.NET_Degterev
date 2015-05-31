@@ -50,7 +50,7 @@ namespace ParsingText
         static string patternEndWord = @"\W+";
         static char patternQuestion = '?';
 
-        public static List<ISentence> ParseString(String text)
+        internal static List<ISentence> ParseString(String text)
         {
             List<ISentence> sentences = new List<ISentence>();
             string[] split = Regex.Split(text, patternEndSentence, RegexOptions.IgnoreCase | RegexOptions.Compiled);
@@ -70,13 +70,13 @@ namespace ParsingText
                 string sentenceAsString = (split[i] + sentenceDivider).Trim();
                 bool isCurrentQuestion = patternQuestion.ToString().Equals(sentenceDivider);
                 ISentence current = new Sentence(sentenceAsString, isCurrentQuestion);
-                current.words = parseSentence(sentenceAsString);
+                current.words = ParseSentence(sentenceAsString);
                 sentences.Add(current);
             }
             return sentences;
         }
 
-        public static List<IWord> parseSentence(String sentence)
+        private static List<IWord> ParseSentence(String sentence)
         {
             List<IWord> words = new List<IWord>();
             string[] splitWords = Regex.Split(sentence, patternEndWord, RegexOptions.IgnoreCase | RegexOptions.Compiled);

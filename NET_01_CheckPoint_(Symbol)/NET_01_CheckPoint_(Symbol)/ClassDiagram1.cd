@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ParsingText.Sentence">
-    <Position X="4.75" Y="0.5" Width="1.5" />
+    <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAAAAAAEAAAACAAAAAAAAAAAACCAAAIAAAA=</HashCode>
       <FileName>Sentence.cs</FileName>
@@ -9,23 +9,8 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ParsingText.Parsing" Collapsed="true">
-    <Position X="10.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Parsing.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ParsingText.Story">
-    <Position X="7" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ACIAAAAAAAAAABAQAAAABAQAAAAAAAAAAAAAAAJQIAA=</HashCode>
-      <FileName>Textual.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="ParsingText.Lexicon">
-    <Position X="8.75" Y="0.5" Width="1.5" />
+    <Position X="10.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACIAAAABAAAAABAQAAAABAQAAAAAAAAAAAAAAABQIAA=</HashCode>
       <FileName>Lexicon.cs</FileName>
@@ -33,29 +18,29 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ParsingText.Word">
-    <Position X="4.75" Y="3.75" Width="1.5" />
+    <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAACAAAAAACAAAAAAAAAAAAiDAAAIAAAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAABAAAAAAAI=</HashCode>
       <FileName>Word.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="ParsingText.ISymbol">
-    <Position X="2.25" Y="2.5" Width="1.5" />
+  <Class Name="ParsingText.Reader">
+    <Position X="6.25" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interface\ISymbol.cs</FileName>
+      <HashCode>AAAAQAAQAAACAAAAAAAAAAAIAAAAAWCAAQAAAAAAAAA=</HashCode>
+      <FileName>Reader.cs</FileName>
     </TypeIdentifier>
-  </Interface>
+  </Class>
   <Interface Name="ParsingText.IWord">
     <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAgAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAABAAAAAAAI=</HashCode>
       <FileName>Interface\IWord.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="ParsingText.ISentence">
-    <Position X="1" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAACCAAAIAAAA=</HashCode>
       <FileName>Interface\ISentence.cs</FileName>

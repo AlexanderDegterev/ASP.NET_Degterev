@@ -17,25 +17,20 @@ namespace ParsingText
         Из текста удалить все слова заданной длины, начинающиеся на согласную букву.
         В некотором предложении текста слова заданной длины заменить указанной подстрокой, длина которой может не совпадать с длиной слова.*/
 
-        const int countSymbol = 6;
+        const int CountSymbol = 6;
+        const int CountSymbolTask4 = 6;
 
         static void Main()
         {
             Reader reader = new Reader();
             string original = reader.ReadOriginal("text2.txt");
             Console.WriteLine("Print text (Original):\n" + original);
-
             string textCorrected = reader.ReadOptimized("text2.txt");
-
             Console.WriteLine("Print text(corrected):\n " + textCorrected);
             Console.WriteLine("\n ");
-
             List<ISentence> sentence = Reader.ParseString(textCorrected);
 
-            task1(sentence);
-
-            //foreach (ISentence a in sentence)
-            // Console.WriteLine(a);
+            Task1(sentence);
 
             //2
             // из List sentences получить только вопросительные предложения
@@ -44,21 +39,20 @@ namespace ParsingText
             // вывести сет
             //List<ISentence> sentence = Reader.ParseString(textCorrected);
             //IEnumerable<ISentence> query2 = sentence.OrderBy(x => x.wordsCount);
-            task2(sentence);
-
-            task3(textCorrected, sentence);
-            
+            Task2(sentence);
 
             //3 выбрать все слова на удаление
             // и в исходном тексте их заменить на "";
+            Task3(textCorrected, sentence);
 
             //4 
             // взять рандом преложение
             // найти слова на замену
             // заменить исходное предложение
+            Task4(sentence, CountSymbolTask4);
         }
 
-        private static void task1(List<ISentence> sentence)
+        private static void Task1(List<ISentence> sentence)
         {
             //1   add sort(LINQ)
             IEnumerable<ISentence> query = sentence.OrderBy(x => x.wordsCount);
@@ -66,7 +60,6 @@ namespace ParsingText
                           orderby element.wordsCount
                           select element;*/
             Console.WriteLine("TASK 1 :Sort by words count: \n");
-            //foreach (var value in wordCountSort)
             foreach (var value in query)
             {
                 Console.WriteLine(value);
@@ -74,12 +67,12 @@ namespace ParsingText
             Console.WriteLine("End sort by words count \n");
         }
 
-        private static void task2(List<ISentence> sentence)
+        private static void Task2(List<ISentence> sentence)
         {
             IEnumerable<ISentence> query2 = from element in sentence
                                             where element.isQuestion == true
                                             select element;
-            ISet<IWord> words = getUniqueWords(query2, countSymbol);
+            ISet<IWord> words = GetUniqueWords(query2, CountSymbol);
             Console.WriteLine("TASK 2 :start words from questions (6 symbols): \n");
             foreach (IWord item in words)
             {
@@ -87,32 +80,44 @@ namespace ParsingText
             }
             Console.WriteLine("end words from questions (6 symbols): \n");
         }
+       
         //Из текста удалить все слова заданной длины, начинающиеся на согласную букву.
-        private static void task3(String original, List<ISentence> sentence)
+        private static void Task3(String original, List<ISentence> sentence)
         {
-
             Console.WriteLine("TASK 3 :To remove all words of the set length (6) beginning on a consonant from the text.: \n");
-            //string vowels = "AEIOUYАаЕеЁЁИиОоУуЫыЭэЮюЯя";
             string none = "";
-            //if  сделать проверку на гласную букву 
-            String result = replaceTask3(original, sentence, none, countSymbol);
-            //Regex r = new Regex(@"\b[аеёиоуыэюя]\S+\b"/*vowels*/, RegexOptions.IgnoreCase);
-            //string result2 = r.Replace(result, "");
-
+            String result = ReplaceTask3(original, sentence, none, CountSymbol);
             Console.WriteLine(result);
         }
 
-        private static void task4(String original, List<ISentence> sentence)
+        private static void Task4(List<ISentence> sentence, int length)
         {
-            // взять рандом преложение, сделать с ним список с одним элементом
-            Console.WriteLine("TASK 4 :start words from questions: \n");
-            String result = replace(original, sentence, "sample", countSymbol);
-            Console.WriteLine(result);
+            Console.WriteLine("\nTASK 4 :Replace word: \n");
+            string randomSentenceString = GetRandomSentence(sentence);
+            Console.WriteLine("Random sentence:"+randomSentenceString);
+            foreach (string word in randomSentenceString.Split(new char[] { ' ', ',', '.', ';', ':', '!', '?' }, StringSplitOptions.RemoveEmptyEntries))
+                if (word.Length == length)
+                {
+                    Console.WriteLine("Replace word:"+word);
+                    //replase word
+                    randomSentenceString = randomSentenceString.Replace(word, "REPLACE");
+                }
+
+            Console.WriteLine("Sentence replace:"+randomSentenceString);
+                
         }
 
-        private static String replace(String original, List<ISentence> sentence, String newChars, int length)
+        private static String GetRandomSentence(List<ISentence> sentence)
         {
-            ISet<IWord> words = getUniqueWords(sentence, length);
+            var rand = new Random();
+            var randomSentence = sentence[rand.Next(sentence.Count)];
+            return randomSentence.sentence;
+                 
+        }
+
+        private static String Replace(String original, List<ISentence> sentence, String newChars, int length)
+        {
+            ISet<IWord> words = GetUniqueWords(sentence, length);
             foreach (IWord item in words)
             
             {
@@ -121,15 +126,10 @@ namespace ParsingText
             return original;
         }
 
-        private static String replaceTask3(String original, List<ISentence> sentence, String newChars, int length)
+        private static String ReplaceTask3(String original, List<ISentence> sentence, String newChars, int length)
         {
-            //string vowels = "AEIOUYАаЕеЁЁИиОоУуЫыЭэЮюЯя";
-            //string vowels = "ауоыиэяюёеАУОЫИЭЯЮЁЕ";
-            //string[] stringArray = { "а", "е", "у", "я" };
             char[] vowels = new[] { 'а', 'я', 'о', 'ё', 'ы', 'и', 'э', 'е', 'у', 'ю' };
-            //string s = new string(vowels);
-            //char vowels = 'е';
-            ISet<IWord> words = getUniqueWords(sentence, length);
+            ISet<IWord> words = GetUniqueWords(sentence, length);
             foreach (IWord item in words)
             {
                 //foreach (char x in vowels)
@@ -144,7 +144,7 @@ namespace ParsingText
             return original;
         }
    
-        private static ISet<IWord> getUniqueWords(IEnumerable<ISentence> sentences, int length)
+        private static ISet<IWord> GetUniqueWords(IEnumerable<ISentence> sentences, int length)
         {
             ISet<IWord> words = new HashSet<IWord>();
             foreach (var value in sentences)
