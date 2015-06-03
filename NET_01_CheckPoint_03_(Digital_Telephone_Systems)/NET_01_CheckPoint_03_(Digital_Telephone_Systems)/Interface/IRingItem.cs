@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems_
 {
-    public interface IRing
+    public interface IRingItem
     {
-        int CostIsRinging { get; set; }
+        DateTime DateIsRinging { get; set; }
+        string TelephoneSubscriberSurname { get; set; }
         int/*string*/ Tariff { get; set; }
-        string TelephoneSubscriber { get; set; }
         DateTime DurationIsRinging { get; set; }
+        double CostIsRinging { get; set; }
     }
 }

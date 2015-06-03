@@ -23,8 +23,8 @@ namespace ParsingText
         static void Main()
         {
             Reader reader = new Reader();
-            string original = reader.ReadOriginal("text2.txt");
-            Console.WriteLine("Print text (Original):\n" + original);
+            string textoriginal = reader.ReadOriginal("text2.txt");
+            Console.WriteLine("Print text (Original):\n" + textoriginal);
             string textCorrected = reader.ReadOptimized("text2.txt");
             Console.WriteLine("Print text(corrected):\n " + textCorrected);
             Console.WriteLine("\n ");

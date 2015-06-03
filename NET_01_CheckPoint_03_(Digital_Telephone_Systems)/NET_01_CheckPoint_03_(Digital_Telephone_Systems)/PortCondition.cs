@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems_
 {
-    public interface IClients
+    public enum PortCondition
     {
-        string NameClient { get; set; }
-        string SurnameClient { get; set; }
-        string TerminalClient { get; set; }
+        DisconnectedPort,
+        ConnectedPort,
+        Call,
+        Alarm
     }
 }

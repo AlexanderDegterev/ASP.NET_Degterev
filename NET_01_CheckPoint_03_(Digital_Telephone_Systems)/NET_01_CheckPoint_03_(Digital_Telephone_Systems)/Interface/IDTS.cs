@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems_
 {
-    public enum IPortCondition
+    public interface IDTS
     {
-        DisconnectedPort,
-        ConnectedPort,
-        Call,
-        Alarm
+        string nameDTS {get;set;}
+        PortCondition PortCondition { get; set; }
     }
 }
