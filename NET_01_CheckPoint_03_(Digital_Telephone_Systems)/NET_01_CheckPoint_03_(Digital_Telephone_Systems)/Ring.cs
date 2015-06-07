@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace NET_01_CheckPoint_03__Digital_Telephone_Systems_
+namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
     
     public class Ring : ICollection<IRingItem>
