@@ -21,6 +21,10 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
         // 1) Define a delegate type.
         public delegate void CarEngineHandler(string msgForCaller);
 
+        // Client EVENT
+        public event CarEngineHandler Exploded;
+        public event CarEngineHandler AboutToBlow;
+
         // 2) Define a member variable of this delegate.
         private CarEngineHandler listOfHandlers;
 
