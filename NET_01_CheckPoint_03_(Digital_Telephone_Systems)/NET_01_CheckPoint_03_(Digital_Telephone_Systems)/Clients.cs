@@ -19,17 +19,18 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             ClientBalance = clientBalance;
         }
         // 1) Define a delegate type.
-        public delegate void CarEngineHandler(string msgForCaller);
+        public delegate void ClientCallingEventAgrs(string msgForCaller);
+        public delegate void ClientCallingEventAgrs2(int msgForCaller);
 
         // Client EVENT
-        public event CarEngineHandler Exploded;
-        public event CarEngineHandler AboutToBlow;
+        public event ClientCallingEventAgrs Exploded;
+        public event ClientCallingEventAgrs2 AboutToBlow;
 
         // 2) Define a member variable of this delegate.
-        private CarEngineHandler listOfHandlers;
+        private ClientCallingEventAgrs listOfHandlers;
 
         // 3) Add registration function for the caller.
-        public void RegisterWithCarEngine(CarEngineHandler methodToCall)
+        public void RegisterWithCarEngine(ClientCallingEventAgrs methodToCall)
         {
             // listOfHandlers = methodToCall;
             // listOfHandlers += methodToCall; // Group vyzov
@@ -39,7 +40,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                 Delegate.Combine(listOfHandlers, methodToCall);  // vmesto +=
         }
 
-        public void UnRegisterWithCarEngine(CarEngineHandler methodToCall)
+        public void UnRegisterWithCarEngine(ClientCallingEventAgrs methodToCall)
         {
             listOfHandlers -= methodToCall;
         }
@@ -48,16 +49,17 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
         {
             if (clientIsDead)
             {
-                if (listOfHandlers != null)
-                    listOfHandlers("Sorry,this client is dead...");
+                if (Exploded != null)
+                    Exploded("Sorry,this client is dead...");
             }
             else
             { 
                 ClientBalance -=deltaBal;
                 Console.WriteLine("Balance: {0}",ClientBalance);
-                if ((ClientBalance <= 0 ) && (listOfHandlers != null))
+                if ((ClientBalance <= 0) && (Exploded != null))
                 {
-                    listOfHandlers ("Limin ischerpan !!!");
+                    Exploded("Limin ischerpan !!!");
+                    AboutToBlow(123);
                 }
             }
         }
