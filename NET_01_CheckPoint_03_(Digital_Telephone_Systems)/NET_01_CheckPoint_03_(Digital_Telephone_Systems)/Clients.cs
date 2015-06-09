@@ -19,12 +19,12 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             ClientBalance = clientBalance;
         }
         // 1) Define a delegate type.
-        public delegate void ClientCallingEventAgrs(string msgForCaller);
-        public delegate void ClientCallingEventAgrs2(int msgForCaller);
+        public delegate void ClientCallingEventAgrs(object sender, CarEventAgrs e);
+        //public delegate void ClientCallingEventAgrs2(int msgForCaller);
 
         // Client EVENT
         public event ClientCallingEventAgrs Exploded;
-        public event ClientCallingEventAgrs2 AboutToBlow;
+        //public event ClientCallingEventAgrs2 AboutToBlow;
 
         // 2) Define a member variable of this delegate.
         private ClientCallingEventAgrs listOfHandlers;
@@ -50,7 +50,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             if (clientIsDead)
             {
                 if (Exploded != null)
-                    Exploded("Sorry,this client is dead...");
+                    Exploded(this, new CarEventAgrs("Sorry,this client is dead..."));
             }
             else
             { 
@@ -58,8 +58,8 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                 Console.WriteLine("Balance: {0}",ClientBalance);
                 if ((ClientBalance <= 0) && (Exploded != null))
                 {
-                    Exploded("Limin ischerpan !!!");
-                    AboutToBlow(123);
+                    Exploded(this, new CarEventAgrs("Limin ischerpan !!!\n"));
+                    //AboutToBlow(123);
                 }
             }
         }

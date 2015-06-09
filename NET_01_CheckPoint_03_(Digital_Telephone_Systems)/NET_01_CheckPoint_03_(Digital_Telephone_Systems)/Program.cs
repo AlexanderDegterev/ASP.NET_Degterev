@@ -19,27 +19,22 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             //BinaryOp c = new BinaryOp(Clients.SquareNumber);*/
 
             Clients client1 = new Clients("Alex", "Degterev", "Lenovo", 250);
-            //client1.RegisterWithCarEngine(new Clients.CarEngineHandler(OnCarEngineEvent));
-            //client1.RegisterWithCarEngine(OnCarEngineEvent);
+            Console.WriteLine("Balance:{0}", client1.ClientBalance);
             client1.Exploded += client1_Exploded;
-            client1.AboutToBlow +=client1_AboutToBlow;
+            //client1.AboutToBlow +=client1_AboutToBlow;
             Console.WriteLine("Balance minus");
             for (int i = 0; i < 6; i++)
                 client1.Accelerate(50);
         }
 
-        private static void client1_AboutToBlow(int msg)
+        private static void client1_AboutToBlow(object sender, CarEventAgrs e)
         {
             Console.WriteLine("\n Message From About to blow");
-            Console.WriteLine("=> {0}", msg);
+            Console.WriteLine("=> {0} says:", e.msg);
             Console.WriteLine("******************************\n");
+            
+            
         }
-
-        /*Clients.CarEngineHandler handler2 = new Clients.CarEngineHandler(OnCarEngineEvent);
-        Clients.RegisterWithCarEngine(handler2);*/
-        // Unregister from the second handler. 
-        //client1.UnRegisterWithCarEngine(handler2);
-
         static void DisplayDelegateInfo(Delegate delObj)
             {
                 foreach (Delegate d in delObj.GetInvocationList())
@@ -48,11 +43,16 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                 Console.WriteLine("Type Name: {0}", d.Target);
                 }
             }
-        public static void client1_Exploded(string msg)
+        public static void client1_Exploded(object sender, CarEventAgrs e)
         {
-            Console.WriteLine("\n Message From Client Object");
-            Console.WriteLine("=> {0}", msg);
-            Console.WriteLine("******************************\n");
+            if (sender is Clients)
+            {
+                Clients clien = (Clients)sender;
+                Console.WriteLine("\n Message From Client Object");
+                Console.WriteLine("\n Message {0}, Balamce {1},Name {2}", e.msg, clien.ClientBalance, clien.ClientName);
+                Console.WriteLine("******************************\n");
+                clien.ClientBalance = 500;
+            }
         }
     }
 
