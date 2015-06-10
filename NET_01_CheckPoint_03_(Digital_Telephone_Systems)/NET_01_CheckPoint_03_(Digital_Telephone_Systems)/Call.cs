@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
     
-    public class Ring : ICollection<IRingItem>
+    public class Call : ICollection<IRingItem>
     {
         private ICollection<IRingItem> ringItem = new List<IRingItem>();
 

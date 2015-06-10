@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ATE.ATE">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAEACQGAAAAEIBAAkAAUAAAEAAAAgAACgA=</HashCode>
+      <FileName>ATE.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATE.Terminal">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAQAAAAAAACAAAAAAAAAAAAgAAAAQEAgAABAAAAgA=</HashCode>
+      <FileName>Terminal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATE.Port">
+    <Position X="6.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAIAAAAAAAAAAAAAAAAAAAEAAAABAAAAgA=</HashCode>
+      <FileName>Port.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATE.Client">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAIAAAACgA=</HashCode>
+      <FileName>Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATE.PhoneCall">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PhoneCall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATE.Contract">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAACAAgAAAAAAAABAAAAkA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATE.Tariff" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tariff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATE.CallingEventArgs">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>CallingEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="ATE.PhoneNumber" Collapsed="true">
+    <Position X="10.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAAAAEAAAAAAAAAAAABAAAAAAA5wAAAAA=</HashCode>
+      <FileName>PhoneNumber.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="ATE.TerminalState">
+    <Position X="10.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAQAAAABAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>TerminalState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ATE.PortState">
+    <Position X="8.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAABAAAAAAQAAAABAAAAAAAAAAAAAAIAAAAAAI=</HashCode>
+      <FileName>PortState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ATE.CallingState">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEgAAAAAAAADAQAEAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>CallingState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

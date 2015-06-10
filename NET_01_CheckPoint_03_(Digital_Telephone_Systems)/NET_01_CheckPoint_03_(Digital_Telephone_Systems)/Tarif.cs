@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
-    public interface IDTS
+    class Tarif : ITariff
     {
-        string nameDTS {get;set;}
+        public string NameTariff { get; set;}
+
+        public double CostTariff { get; set;}
+
+        
     }
 }

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
-    public interface IDTS
+    public interface ITerminal
     {
-        string nameDTS {get;set;}
+        int PhoneNumber {get;set;}
+        IPort Port { get; set; }
+            
     }
 }

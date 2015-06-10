@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
-    public interface IDTS
+    interface IActions
     {
-        string nameDTS {get;set;}
+         bool StartCall(int Phonenumber);
+
+         void FinishCall();
+
+         void Plug();
+
+         void UnPlug();
     }
 }
