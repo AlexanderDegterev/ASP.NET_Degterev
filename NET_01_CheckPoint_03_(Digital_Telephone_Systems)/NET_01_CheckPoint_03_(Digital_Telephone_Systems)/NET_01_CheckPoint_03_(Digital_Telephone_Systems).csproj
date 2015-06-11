@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarEventAgrs.cs" />
+    <Compile Include="CallEventAgrs.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="DTS.cs" />
     <Compile Include="ClientsOld.cs" />

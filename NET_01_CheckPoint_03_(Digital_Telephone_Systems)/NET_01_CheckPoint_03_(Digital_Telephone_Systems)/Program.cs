@@ -18,6 +18,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             {
                 Console.WriteLine(item.ToString());
             }
+
             // dts.events();
             //   dts.SetCalls();
             // dts.report()
@@ -51,9 +52,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 
         public static ICollection<IClient> generateClients(int count)
         {
-            //IList<Client> clients = new List<Client>();
             ICollection<IClient> clients = new List<IClient>();
-            //foreach (var i in dataTable.Rows)
             for (int i = 0; i < count; i++)
             {
                 Client item = new Client();

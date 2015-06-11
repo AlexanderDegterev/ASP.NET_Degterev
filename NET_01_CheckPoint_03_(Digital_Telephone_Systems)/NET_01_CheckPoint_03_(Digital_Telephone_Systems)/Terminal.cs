@@ -8,12 +8,10 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
     class Terminal : ITerminal
     {
-        public int PhoneNumber{get; set;}
-        public IPort Port{get; set;}
+        public int PhoneNumber { get; set;}
+        public Port Port { get; set;}
 
         private List<int> numbers;
-
-        
          
         public Terminal() 
         {
@@ -29,6 +27,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             // get next available number\
             Random rnd = new Random();
             this.PhoneNumber = rnd.Next(420001, 420101);
+        }
             //this.PhoneNumber = -1;
             /*if ((numbers != null) && (numbers.Count > 0))
             {
@@ -39,32 +38,37 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                 }
                 //numbers.Remove(this.PhoneNumber);
             }*/
+            public Terminal(int phoneNumber)
+                {
+                this.PhoneNumber = phoneNumber;
+                Port = new Port();
+                }
 
        
-            this.Port = new Port();  
-        }
+            //this.Port = new Port();  
+        
         // Начинвем звонить, проверяем порт
-        public void Call(int PhoneNumber)
-        {
-            if (Port.State = ConnectedPort )
-            {
-                OnStartCalling(PhoneNumber);
-            }
-            else
-            {
-                Console.WriteLine("Error port");
-            }
-        }
+        //public void Call(int PhoneNumber)
+        //{
+        //    if ()
+        //    {
+        //        OnStartCalling(PhoneNumber);
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Error port");
+        //    }
+        //}
 
-        protected virtual void OnStartCalling(int PhoneNumber)
-        {
-            CallingEventArgs e = new CallingEventArgs(PhoneNumber);
-            if (StartCalling != null)
-            {
-                StartCalling(this, e);
-            }
-            Console.WriteLine(e.response);
-        }
+        //protected virtual void OnStartCalling(int PhoneNumber)
+        //{
+        //    CallingEventArgs e = new CallingEventArgs(PhoneNumber);
+        //    if (StartCalling != null)
+        //    {
+        //        StartCalling(this, e);
+        //    }
+        //    Console.WriteLine(e.response);
+        //}
 
         //return event 
     }

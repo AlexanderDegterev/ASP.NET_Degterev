@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
-    public class CarEventAgrs : EventArgs
+    public class CallEventAgrs : EventArgs
     {
         public readonly string msg;
-        public CarEventAgrs(string message)
+        public CallEventAgrs(string message)
         {
             msg = message;
         }
