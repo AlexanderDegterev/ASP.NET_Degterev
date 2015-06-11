@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
-    public interface IDTS
+    public enum PortState
     {
-        string nameDTS {get;set;}
+        DisconnectedPort,
+        ConnectedPort,
+        Busy,
     }
 }

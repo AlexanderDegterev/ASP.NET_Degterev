@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
-    public interface IClients
+    public interface IClient 
     {
         string ClientName { get; set; }
         string ClientSurname { get; set; }
-        string ClientTerminal { get; set; }
+        ITerminal ClientTerminal { get; set; }
         int ClientBalance { get; set; }
-        int ClientTelNumber { get; set; }
-        string ClientTariff { get; set; }
+        Tarif_enum ClientTariff { get; set; }
         DateTime ClientStartTariff { get; set; }
+
+        //change tariff plan (set client tarif returt true for success, false for error
+
+        
     }
+
+    
 }

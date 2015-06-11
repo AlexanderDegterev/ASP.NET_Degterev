@@ -8,10 +8,10 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
     //public event EventHandler BallInPlay;
     //public delegate int BinaryOp (int x, int y);
-    public class Clients //: IClients
+    public class ClientsOld //: IClients
     {
-        public Clients() { clientBalance = 100; }
-        public Clients(string clientName, string clientSurname, string clientTerminal, int clientBalance)
+        public ClientsOld() { clientBalance = 100; }
+        public ClientsOld(string clientName, string clientSurname, string clientTerminal, int clientBalance)
         {
             ClientName = clientName;
             ClientSurname = clientSurname;
