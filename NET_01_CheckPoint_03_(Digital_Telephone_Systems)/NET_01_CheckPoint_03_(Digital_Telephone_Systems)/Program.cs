@@ -19,6 +19,8 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                 Console.WriteLine(item.ToString());
             }
 
+            ProcessCommand();
+
             // dts.events();
             //   dts.SetCalls();
             // dts.report()
@@ -44,6 +46,72 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             //    }
             //}
 
+        }
+
+        private static void ProcessCommand()
+        {
+            Console.WriteLine("\n Enter command");
+
+            String command = Console.ReadLine();
+            String[] parsed = command.Trim().Split();
+            String action = parsed[0].ToLower();
+            switch (action)
+            {
+                case "call":
+                    ProcessCall(parsed);
+                    break;
+                case "hangup":
+                    break;
+                case "plug":
+                    ProcessPlug(parsed);
+                    break;
+                case "unplug":
+                    ProcessUnplug(parsed);
+                    break;
+                case "exit" :
+                    break;
+                default: Console.WriteLine("Help is coming");
+                    ProcessCommand();
+                    break;
+                
+            }
+        }
+
+        private static void ProcessCall(string[] parsed)
+        {
+            dts.ActionCall(GetPhoneNumber(parsed), dtseventhandler);
+        }
+        public static void ProcessResult(string msg)
+        {
+            Console.WriteLine(msg);
+            ProcessCommand();
+        }
+
+       public static DTS.DtsEventHandler dtseventhandler =  new DTS.DtsEventHandler(ProcessResult);
+
+        private static void ProcessUnplug(string[] parsed)
+        {
+            dts.ActionUnPlug(GetPhoneNumber(parsed), dtseventhandler);
+        }
+
+        private static int GetPhoneNumber(string[] parsed)
+        {
+            if (parsed.Count() > 1)
+            {
+                try
+                {
+                    int Phonenumber = Convert.ToInt32(parsed[1]);
+                    return Phonenumber;
+                }
+                catch (Exception e)
+                {
+                }
+            }
+            return -1;
+        }
+        private static void ProcessPlug(string[] parsed)
+        {
+           dts.ActionPlug(GetPhoneNumber(parsed), dtseventhandler);
         } 
 
         public static void CallStatus (String message) {
@@ -62,8 +130,15 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             return clients;
         }
 
-
-
+        static Random random = new Random();
+        public static int getRandomValue(int maxValue)
+        {
+            return random.Next(maxValue);
+        }
+        public static int getRandomValue(int minValue, int maxValue)
+        {
+            return random.Next(minValue, maxValue);
+        }
             //generate clients Iclients collection + metod get client by phonenumber
             // ICollectoin<ICalls>
             //
@@ -89,17 +164,17 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
     //      //client.Plug();
     //    }
 
-    //    private static void actionPerformCall(int CallerId, int TargetId) 
-    //    {
-    //        //find client by phoneNumber
-    //        //check your port isAvailable
-    //        //find target by phoneNumber
-    //        //check target port
-    //       // if (canCall) {
-    //            //  self: startCall
-    //            //target : port => busy;
-    //        //}
-    //    }
+        private static void actionPerformCall(int CallerId, int TargetId)
+        {
+            //find client by phoneNumber
+            //check your port isAvailable
+            //find target by phoneNumber
+            //check target port
+            // if (canCall) {
+            //  self: startCall
+            //target : port => busy;
+            //}
+        }
 
     //     private static void unplug(int CallerId) 
     //     { 

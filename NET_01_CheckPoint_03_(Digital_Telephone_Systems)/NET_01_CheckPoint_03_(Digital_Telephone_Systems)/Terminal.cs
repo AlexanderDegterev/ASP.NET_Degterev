@@ -15,34 +15,15 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
          
         public Terminal() 
         {
-            //Generate availadle numbers
-            if (numbers == null)
-            {
-                numbers = new List<int>();
-                for (int i = 420001; i < 420101; i++ )
-                {
-                    numbers.Add(i);
-                }
-            }
-            // get next available number\
-            Random rnd = new Random();
-            this.PhoneNumber = rnd.Next(420001, 420101);
+            this.PhoneNumber = Program.getRandomValue(420001, 420101);
+            Port = new Port();
         }
-            //this.PhoneNumber = -1;
-            /*if ((numbers != null) && (numbers.Count > 0))
-            {
-                foreach (var c in numbers) //TODO get first element correctly
-                {
-                    this.PhoneNumber = c;
-                    break;
-                }
-                //numbers.Remove(this.PhoneNumber);
-            }*/
-            public Terminal(int phoneNumber)
-                {
-                this.PhoneNumber = phoneNumber;
-                Port = new Port();
-                }
+           
+        public Terminal(int phoneNumber)
+        {
+            this.PhoneNumber = phoneNumber;
+            Port = new Port();
+        }
 
        
             //this.Port = new Port();  
@@ -52,7 +33,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
         //{
         //    if ()
         //    {
-        //        OnStartCalling(PhoneNumber);
+        //        OnStartCalling(PhoneNumber)58;
         //    }
         //    else
         //    {

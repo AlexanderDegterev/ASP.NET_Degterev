@@ -40,60 +40,13 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             throw new NotImplementedException();
         }
 
-        static class RandomStringArrayTool
-        {
-            static Random _random = new Random();
-
-            public static string[] RandomizeStrings(string[] arr)
-            {
-                List<KeyValuePair<int, string>> list = new List<KeyValuePair<int, string>>();
-                // Add all strings from array
-                // Add new random int each time
-                foreach (string s in arr)
-                {
-                    list.Add(new KeyValuePair<int, string>(_random.Next(), s));
-                }
-                // Sort the list by the random number
-                var sorted = from item in list
-                             orderby item.Key
-                             select item;
-                // Allocate new string array
-                string[] result = new string[arr.Length];
-                // Copy values to array
-                int index = 0;
-                foreach (KeyValuePair<int, string> pair in sorted)
-                {
-                    result[index] = pair.Value;
-                    index++;
-                }
-                // Return copied array
-                return result;
-            }
-        }
-
-        static int GenerateDigit(Random rng)
-        {
-            // Предположим, что здесь много логики
-            return rng.Next();
-        }
+       
         
         public Client()
         {
-            string[] shuffle = RandomStringArrayTool.RandomizeStrings(surnames);
-            foreach (string s in shuffle)
-            {
-                this.ClientSurname = s;
-            }
 
-            string[] shuffle2 = RandomStringArrayTool.RandomizeStrings(names);
-            foreach (string s in shuffle2)
-            {
-                this.ClientName = s;
-            }
-
-            //this.ClientName = names[mIndex];
-                //rng.Next(names.Count()); //names[random.Next(names.Count())]; //random max array size
-            //this.ClientSurname = surnames[sIndex]; //surnames[rng.Next(surnames.Count())]; //random max array size
+            this.ClientName = names[Program.getRandomValue((names.Count()))];
+            this.ClientSurname = surnames[Program.getRandomValue((surnames.Count()))]; 
             Array values = Enum.GetValues(typeof(Tarif_enum));
             Random random = new Random();
             //Tarif_enum randomTarif = (Tarif_enum)values.GetValue(random.Next(values.Length));
