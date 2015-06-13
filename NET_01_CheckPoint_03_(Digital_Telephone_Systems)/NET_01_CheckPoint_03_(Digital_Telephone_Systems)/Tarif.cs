@@ -8,10 +8,31 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
     class Tarif : ITariff
     {
-        public string NameTariff { get; set;}
+        private string nameTariff;
+        public string NameTariff
+        {
+            get
+                {
+                    return nameTariff;
+                }
+            set
+                {
+                    nameTariff = value;
+                }
+        }
 
-        public double CostTariff { get; set;}
-
-        
+        private double costTariff;
+        public double CostTariff
+        {
+            get
+                {
+                    return costTariff;
+                }
+            set
+                {
+                    costTariff = value;
+                }
+        }
     }
+
 }

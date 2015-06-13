@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
     
-    public class Call : ICollection<IRingItem>
+    public class Call : ICollection<ICallItem>
     {
-        private ICollection<IRingItem> ringItem = new List<IRingItem>();
+        private ICollection<ICallItem> ringItem = new List<ICallItem>();
 
         #region ICollection<IRingItem>
 
-        public void Add(IRingItem item)
+        public void Add(ICallItem item)
         {
             ringItem.Add(item);
         }
@@ -24,12 +24,12 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             ringItem.Clear();
         }
 
-        public bool Contains(IRingItem item)
+        public bool Contains(ICallItem item)
         {
             return ringItem.Contains(item);
         }
 
-        public void CopyTo(IRingItem[] array, int arrayIndex)
+        public void CopyTo(ICallItem[] array, int arrayIndex)
         {
             ringItem.CopyTo(array, arrayIndex);
         }
@@ -44,12 +44,12 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             get { return ringItem.IsReadOnly; }
         }
 
-        public bool Remove(IRingItem item)
+        public bool Remove(ICallItem item)
         {
             return ringItem.Remove(item);
         }
 
-        public IEnumerator<IRingItem> GetEnumerator()
+        public IEnumerator<ICallItem> GetEnumerator()
         {
             return ringItem.GetEnumerator();
         }
@@ -59,5 +59,6 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             return this.GetEnumerator();
         }
         #endregion
+       
     }
 }

@@ -47,6 +47,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             //}
 
         }
+        
 
         private static void ProcessCommand()
         {
@@ -57,16 +58,23 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             String action = parsed[0].ToLower();
             switch (action)
             {
-                case "call":
+                case "call": // call callerId targetId
                     ProcessCall(parsed);
                     break;
-                case "hangup":
+                case "hangup": 
+                    ProcessHangUp(parsed);
                     break;
                 case "plug":
                     ProcessPlug(parsed);
                     break;
                 case "unplug":
                     ProcessUnplug(parsed);
+                    break;
+                case "change":
+                    ProcessChangeTarif(parsed);
+                    break;
+                case "report":
+                    ProcessReport(parsed);
                     break;
                 case "exit" :
                     break;
@@ -75,6 +83,41 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                     break;
                 
             }
+        }
+
+        private static void ProcessReport(string[] parsed)
+        {
+            Call journal = dts.GetCalls();
+            foreach (var c in journal)
+            {
+                Console.WriteLine(c);
+            }
+            ProcessCommand();
+        }
+
+        private static void ProcessChangeTarif(string[] parsed)
+        {
+            int PhoneNumber = GetPhoneNumber(parsed);
+            if (PhoneNumber < 0)
+            {
+                Console.WriteLine("Not valid number");
+                ProcessCommand();
+                return;
+            }
+            if (parsed.Count() > 2)
+            {
+                dts.ActionChangeTarif(PhoneNumber, parsed[2], dtseventhandler);
+            }
+            else
+            {
+                Console.WriteLine("Please define new tarif.");
+                ProcessCommand();
+            }
+        }
+
+        private static void ProcessHangUp(string[] parsed)
+        {
+            dts.ActionHangUp(GetPhoneNumber(parsed), dtseventhandler);
         }
 
         private static void ProcessCall(string[] parsed)
@@ -139,84 +182,6 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
         {
             return random.Next(minValue, maxValue);
         }
-            //generate clients Iclients collection + metod get client by phonenumber
-            // ICollectoin<ICalls>
-            //
-
-            //readln
-            //parse
-            //perform action
-            //write result to console
-
-        //    Clients client1 = new Clients("Alex", "Degterev", "Lenovo", 250);
-        //    Console.WriteLine("Balance:{0}", client1.ClientBalance);
-        //    client1.Exploded += client1_Exploded;
-        //    //client1.AboutToBlow +=client1_AboutToBlow;
-        //    Console.WriteLine("Balance minus");
-        //    for (int i = 0; i < 6; i++)
-        //        client1.Accelerate(50);
-        //}
-
-    //    private static void actionPlug(int phoneNumber)
-    //    {
-            
-    //        IClients client;
-    //      //client.Plug();
-    //    }
-
-        private static void actionPerformCall(int CallerId, int TargetId)
-        {
-            //find client by phoneNumber
-            //check your port isAvailable
-            //find target by phoneNumber
-            //check target port
-            // if (canCall) {
-            //  self: startCall
-            //target : port => busy;
-            //}
-        }
-
-    //     private static void unplug(int CallerId) 
-    //     { 
-    //         //find client by phoneNumber
-                
-    // //        Client.unplug();
-    //     }
-        
-    //    private static void actionFinishCall(int CallerId) 
-    //    {
-    //       //find client by phoneNumber
-                
-    //       //Client.finish();
-    //    }
-    
-    //    private void client1_AboutToBlow(object sender, CarEventAgrs e)
-    //    {
-    //        Console.WriteLine("\n Message From About to blow");
-    //        Console.WriteLine("=> {0} says:", e.msg);
-    //        Console.WriteLine("******************************\n");
-    //    }
-    //    static void DisplayDelegateInfo(Delegate delObj)
-    //        {
-    //            foreach (Delegate d in delObj.GetInvocationList())
-    //            {
-    //            Console.WriteLine("Method Name: {0}", d.Method);
-    //            Console.WriteLine("Type Name: {0}", d.Target);
-    //            }
-    //        }
-    //    public static void client1_Exploded(object sender, CarEventAgrs e)
-    //    {
-    //        if (sender is Clients)
-    //        {
-    //            Clients clien = (Clients)sender;
-    //            Console.WriteLine("\n Message From Client Object");
-    //            Console.WriteLine("\n Message {0}, Balamce {1},Name {2}", e.msg, clien.ClientBalance, clien.ClientName);
-    //            Console.WriteLine("******************************\n");
-    //            clien.ClientBalance = 500;
-    //        }
-    //    }
-    //}
-
 }
 }
 

@@ -11,7 +11,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
         public int PhoneNumber { get; set;}
         public Port Port { get; set;}
 
-        private List<int> numbers;
+        //private List<int> numbers;
          
         public Terminal() 
         {
@@ -24,33 +24,5 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             this.PhoneNumber = phoneNumber;
             Port = new Port();
         }
-
-       
-            //this.Port = new Port();  
-        
-        // Начинвем звонить, проверяем порт
-        //public void Call(int PhoneNumber)
-        //{
-        //    if ()
-        //    {
-        //        OnStartCalling(PhoneNumber)58;
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Error port");
-        //    }
-        //}
-
-        //protected virtual void OnStartCalling(int PhoneNumber)
-        //{
-        //    CallingEventArgs e = new CallingEventArgs(PhoneNumber);
-        //    if (StartCalling != null)
-        //    {
-        //        StartCalling(this, e);
-        //    }
-        //    Console.WriteLine(e.response);
-        //}
-
-        //return event 
     }
 }

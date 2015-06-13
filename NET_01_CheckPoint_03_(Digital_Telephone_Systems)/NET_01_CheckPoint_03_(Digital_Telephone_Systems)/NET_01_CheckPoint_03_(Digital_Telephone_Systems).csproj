@@ -52,12 +52,13 @@
     <Compile Include="Interface\ITerminal.cs" />
     <Compile Include="Port.cs" />
     <Compile Include="PortState.cs" />
-    <Compile Include="Interface\IRingItem.cs" />
+    <Compile Include="Interface\ICallItem.cs" />
     <Compile Include="Interface\ITariff.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Call.cs" />
-    <Compile Include="RingItem.cs" />
+    <Compile Include="Result.cs" />
+    <Compile Include="CallItem.cs" />
     <Compile Include="Tarif.cs" />
     <Compile Include="Tarif_enum.cs" />
     <Compile Include="Terminal.cs" />
