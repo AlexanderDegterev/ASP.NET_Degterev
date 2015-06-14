@@ -35,7 +35,8 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                     } 
                     State = PortState.DisconnectedPort;
                     return new Result(result,Duration);
-                    break;
+                    //break;
+                
                 case PortState.ConnectedPort:  // plugged / hangup
                      result = "Port connected";
                     if (State == PortState.Busy)
@@ -48,7 +49,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                     } 
                     State = PortState.ConnectedPort;
                     return new Result(result, Duration);
-                    break;
+                    //break;
                 
                 case PortState.Busy:  // startCall
                     if (State == PortState.Busy)
@@ -63,7 +64,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                     State = PortState.Busy;
                     StartCall = DateTime.Now;
                     return new Result("Call started");
-                    break;
+                    //break;
             }
             return new Result("");
         }

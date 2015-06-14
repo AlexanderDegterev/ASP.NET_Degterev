@@ -17,7 +17,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="NET_01_CheckPoint_03__Digital_Telephone_Systems.Client">
-    <Position X="7" Y="4.5" Width="1.5" />
+    <Position X="8.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAUAAAAAgAAAAAEAAAARCAABAAAAIA=</HashCode>
       <FileName>Client.cs</FileName>
@@ -25,7 +25,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="NET_01_CheckPoint_03__Digital_Telephone_Systems.DTS">
-    <Position X="8.75" Y="4.5" Width="1.5" />
+    <Position X="6.25" Y="3.25" Width="1.5" />
     <NestedTypes>
       <Delegate Name="NET_01_CheckPoint_03__Digital_Telephone_Systems.DTS.DtsEventHandler" Collapsed="true">
         <TypeIdentifier>
@@ -39,7 +39,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="NET_01_CheckPoint_03__Digital_Telephone_Systems.Tarif">
-    <Position X="12.25" Y="2.75" Width="1.5" />
+    <Position X="10.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Tarif.cs</FileName>
@@ -75,21 +75,21 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="NET_01_CheckPoint_03__Digital_Telephone_Systems.IPort">
-    <Position X="10.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Interface\IPort.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="NET_01_CheckPoint_03__Digital_Telephone_Systems.ITerminal">
-    <Position X="12.25" Y="0.5" Width="1.5" />
+    <Position X="2.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interface\ITerminal.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="NET_01_CheckPoint_03__Digital_Telephone_Systems.PortState">
-    <Position X="4.5" Y="4.25" Width="1.5" />
+    <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAgAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>PortState.cs</FileName>

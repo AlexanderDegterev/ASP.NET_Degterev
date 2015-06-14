@@ -13,46 +13,26 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 
         static void Main(string[] args)
         {
+            Console.WriteLine("\nInstruction:\n");
+            Console.WriteLine("Example call: call 420099; ");
+            Console.WriteLine("Example hung up: hungup 420099; ");
+            Console.WriteLine("Example change tariff: change 420099 Optima(1-3); ");
+            Console.WriteLine("Example report: report; ");
+            Console.WriteLine("Talk less than 6 seconds are not charged");
+            Console.WriteLine("Exit: Exit; \n");
+            
+
             dts.AddClients(generateClients(4));
             foreach (var item in dts.GetClients())
             {
                 Console.WriteLine(item.ToString());
             }
-
             ProcessCommand();
-
-            // dts.events();
-            //   dts.SetCalls();
-            // dts.report()
-        /*    bool isActive = true;*/
-            // while (isActive)
-            //{
-            //    String command = Console.ReadLine(); //todo split, check first
-            //    if (command.Equals("exit")) {
-            //        isActive = false;
-            //    }
-            //    if (command.Equals("generateClients"))
-            //    {
-
-            //    }
-            //    if (command.Equals("startCall 420312 420903"))
-            //    {
-            //        dts.makeCall(420312, 420903, new Handler(CallStatus));
-                    
-            //    }
-            //    if (command.Equals("unplug 420903"))
-            //    {
-            //        dts.unplug(420903);
-            //    }
-            //}
-
         }
-        
 
         private static void ProcessCommand()
         {
             Console.WriteLine("\n Enter command");
-
             String command = Console.ReadLine();
             String[] parsed = command.Trim().Split();
             String action = parsed[0].ToLower();
@@ -81,16 +61,37 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                 default: Console.WriteLine("Help is coming");
                     ProcessCommand();
                     break;
-                
             }
         }
 
         private static void ProcessReport(string[] parsed)
         {
             Call journal = dts.GetCalls();
+            Console.WriteLine("\n Show all calls");
             foreach (var c in journal)
             {
                 Console.WriteLine(c);
+            }
+            
+            var SortedByDate = journal.OrderBy(x => x.DateOfCall);
+            Console.WriteLine("\n Sorted by date");
+                foreach (var value in SortedByDate)
+                {
+                    Console.WriteLine(value);
+                }
+            
+            var SortedByCost = journal.OrderBy(x => x.CostOfCall);
+            Console.WriteLine("\n Sorted by cost");
+            foreach (var value in SortedByCost)
+                {
+                    Console.WriteLine(value);
+                }
+            
+            var SortedBySubscriber = journal.OrderBy(x => x.Client.ClientSurname);
+            Console.WriteLine("\n Sorted by subscriber");
+            foreach (var value in SortedBySubscriber)
+            {
+                Console.WriteLine(value);
             }
             ProcessCommand();
         }
@@ -146,7 +147,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                     int Phonenumber = Convert.ToInt32(parsed[1]);
                     return Phonenumber;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                 }
             }

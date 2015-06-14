@@ -36,12 +36,12 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             this.ClientName = name;
         }
 
-        string[] names = new string[] { "Alex", "Mike", "Leha" };
-        string[] surnames = new string[] { "Degterev", "Ivanov", "Petrov" };
+        string[] names = new string[] { "Alex", "Mike", "Leha", "Dima" };
+        string[] surnames = new string[] { "Degterev", "Ivanov ", "Petrov ", "Sidorov" };
 
         
         public override string ToString() {
-            return ClientName + " " + ClientSurname + " " + ClientTariff + " " + ClientTerminal.PhoneNumber + " " + ClientStartTariff; 
+            return ClientName + "\t " + ClientSurname + "\t" + ClientTariff + "\t" + ClientTerminal.PhoneNumber + "\t " + ClientStartTariff; 
         }
 
 

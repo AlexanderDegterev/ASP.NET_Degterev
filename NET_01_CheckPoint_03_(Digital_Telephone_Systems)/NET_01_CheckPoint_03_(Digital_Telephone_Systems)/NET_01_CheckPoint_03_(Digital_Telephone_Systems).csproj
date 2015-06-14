@@ -41,11 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CallEventAgrs.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="DTS.cs" />
-    <Compile Include="ClientsOld.cs" />
-    <Compile Include="Interface\IActions.cs" />
     <Compile Include="Interface\IClient.cs" />
     <Compile Include="Interface\IDTS.cs" />
     <Compile Include="Interface\IPort.cs" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
-    public class DTS // implement actions that could happen to dts
+    public class DTS
     {
         public delegate void DtsEventHandler(string msg);
 
@@ -83,13 +83,13 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             var client = from clients in clientsDTS
                          where clients.ClientTerminal.PhoneNumber == Phonenumber
                          select clients;
-            // КТО МЫ !
+            // who are we?
             Console.WriteLine("We call the subscriber " + Phonenumber);
             Console.WriteLine("check of the port caused the subscriber " + Phonenumber);
             if (client != null && client.Count() > 0)
             {
                 Port port = client.ElementAt(0).ClientTerminal.Port;  
-                port.changeState(PortState.Busy);  //check result, if call finished - add call to journal
+                port.changeState(PortState.Busy);  
                 handler("Port for " + Phonenumber + " was changed on " + port.State);
             }
             else

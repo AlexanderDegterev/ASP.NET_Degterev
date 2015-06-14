@@ -23,7 +23,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
         }
         public override string ToString()
         {
-            return Client.ClientName + " " + Client.ClientSurname + " " + Client.ClientTariff + " " + Client.ClientTerminal.PhoneNumber + " " + CallDuration.ToString()+ " " + CostOfCall;
+            return Client.ClientName + "\t" + Client.ClientSurname + "\t" + DateOfCall + "\t" + Client.ClientTariff + "\t" + Client.ClientTerminal.PhoneNumber + "\t" + CallDuration.TotalMinutes.ToString() + "\t" + CostOfCall;
         }
 
     }

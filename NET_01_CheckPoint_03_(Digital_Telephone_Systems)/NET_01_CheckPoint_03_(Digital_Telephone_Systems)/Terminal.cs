@@ -11,8 +11,6 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
         public int PhoneNumber { get; set;}
         public Port Port { get; set;}
 
-        //private List<int> numbers;
-         
         public Terminal() 
         {
             this.PhoneNumber = Program.getRandomValue(420001, 420101);

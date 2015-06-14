@@ -10,7 +10,6 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
     {
         string NameTariff { get; set; }
         double CostTariff { get; set; }
-        /*....*/
 
     }
 }

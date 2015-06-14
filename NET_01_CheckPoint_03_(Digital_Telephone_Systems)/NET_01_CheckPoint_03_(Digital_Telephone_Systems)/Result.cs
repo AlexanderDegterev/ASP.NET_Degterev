@@ -15,10 +15,25 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
         {
             this.message = msg;
         }
+       
         public Result(string msg, TimeSpan duration)
         {
             this.message = msg;
-            this.callDuration = duration;
+            this.callDuration = Round(duration);
+        }
+
+        public static TimeSpan Round(TimeSpan input)
+        {
+            if (input < TimeSpan.Zero)
+            {
+                return -Round(-input);
+            }
+            int minutes = (int)input.TotalMinutes;
+            if (input.Seconds >= 6)
+            {
+                minutes++;
+            }
+            return TimeSpan.FromMinutes(minutes);
         }
     }
 }
