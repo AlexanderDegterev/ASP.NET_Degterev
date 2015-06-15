@@ -107,7 +107,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             }
             if (parsed.Count() > 2)
             {
-                dts.ActionChangeTarif(PhoneNumber, parsed[2], dtseventhandler);
+                dts.ActionChangeTarif(PhoneNumber, parsed[2], dtsEventHandler);
             }
             else
             {
@@ -118,12 +118,12 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 
         private static void ProcessHangUp(string[] parsed)
         {
-            dts.ActionHangUp(GetPhoneNumber(parsed), dtseventhandler);
+            dts.ActionHangUp(GetPhoneNumber(parsed), dtsEventHandler);
         }
 
         private static void ProcessCall(string[] parsed)
         {
-            dts.ActionCall(GetPhoneNumber(parsed), dtseventhandler);
+            dts.ActionCall(GetPhoneNumber(parsed), dtsEventHandler);
         }
         public static void ProcessResult(string msg)
         {
@@ -131,11 +131,11 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             ProcessCommand();
         }
 
-       public static DTS.DtsEventHandler dtseventhandler =  new DTS.DtsEventHandler(ProcessResult);
+       public static DTS.DtsEventHandler dtsEventHandler =  new DTS.DtsEventHandler(ProcessResult);
 
         private static void ProcessUnplug(string[] parsed)
         {
-            dts.ActionUnPlug(GetPhoneNumber(parsed), dtseventhandler);
+            dts.ActionUnPlug(GetPhoneNumber(parsed), dtsEventHandler);
         }
 
         private static int GetPhoneNumber(string[] parsed)
@@ -155,7 +155,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
         }
         private static void ProcessPlug(string[] parsed)
         {
-           dts.ActionPlug(GetPhoneNumber(parsed), dtseventhandler);
+           dts.ActionPlug(GetPhoneNumber(parsed), dtsEventHandler);
         } 
 
         public static void CallStatus (String message) {
