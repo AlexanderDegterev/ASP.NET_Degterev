@@ -105,5 +105,12 @@
       <FileName>PortState.cs</FileName>
     </TypeIdentifier>
   </Enum>
+  <Enum Name="NET_01_CheckPoint_03__Digital_Telephone_Systems.Tarif_enum">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAE=</HashCode>
+      <FileName>Tarif_enum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
