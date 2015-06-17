@@ -16,15 +16,5 @@ namespace EF6App
         public string Product { get; set; }
         public int Sum { get; set; }
 
-        public void piece(string line)
-        {
-            string[] parts = line.Split('%');  //Разделитель в CSV файле.
-            ManagerSurname = parts[0];
-            ManagerDate = new DateTime(2015, 12, 31);//DateTime.Parse(parts[1]);
-            ClientDate = new DateTime(2015, 06, 16);//DateTime.Parse(parts[2]);
-            Client = parts[3];
-            Product= parts[4];
-            Sum = int.Parse(parts[5]);
-        }
     }
 }
