@@ -12,7 +12,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
         string ClientSurname { get; set; }
         ITerminal ClientTerminal { get; set; }
         int ClientBalance { get; set; }
-        Tarif_enum ClientTariff { get; set; }
+        TarifEnum ClientTariff { get; set; }
         DateTime ClientStartTariff { get; set; }
 
         //change tariff plan (set client tarif returt true for success, false for error

@@ -6,53 +6,53 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
-    public class DTS
+    public class Dts
     {
         public delegate void DtsEventHandler(string msg);
 
-        private ICollection<IClient> clientsDTS = new List<IClient>();
-        private Call callsJournal = new Call();
+        private ICollection<IClient> _clientsDts = new List<IClient>();
+        private Call _callsJournal = new Call();
 
         public void Add(IClient item)
         {
-            clientsDTS.Add(item);
+            _clientsDts.Add(item);
         }
 
         public ICollection<IClient> GetClients()
         {
-            return clientsDTS;
+            return _clientsDts;
         }
 
 
         public void AddClients(ICollection<IClient> newClients) {
-            clientsDTS = newClients; //TODO don't replace, need to add list to list
+            _clientsDts = newClients; //TODO don't replace, need to add list to list
         }
 
         public void Clear()
         {
-            clientsDTS.Clear();
+            _clientsDts.Clear();
         }
 
-        public void ActionUnPlug(int Phonenumber, DtsEventHandler handler)
+        public void ActionUnPlug(int phonenumber, DtsEventHandler handler)
         {
-            if (Phonenumber < 0)
+            if (phonenumber < 0)
             {
                 handler("Not valid number");
                 return;
             }
-            var client = from clients in clientsDTS
-                         where clients.ClientTerminal.PhoneNumber == Phonenumber
+            var client = from clients in _clientsDts
+                         where clients.ClientTerminal.PhoneNumber == phonenumber
                          select clients;
             if (client != null && client.Count() > 0)
             {
                 Port port = client.ElementAt(0).ClientTerminal.Port;  
-                Result result = port.changeState(PortState.DisconnectedPort);
-                if (result.callDuration.TotalSeconds > 0)
+                Result result = port.ChangeState(PortState.DisconnectedPort);
+                if (result.CallDuration.TotalSeconds > 0)
                 {
-                    ICallItem ringItem = new CallItem(client.ElementAt(0), result.callDuration);
-                    callsJournal.Add(ringItem);
+                    ICallItem ringItem = new CallItem(client.ElementAt(0), result.CallDuration);
+                    _callsJournal.Add(ringItem);
                 }
-                handler(result.message);
+                handler(result.Message);
 
             }
             else
@@ -62,35 +62,35 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             
         }
 
-        internal void ActionPlug(int Phonenumber, DtsEventHandler handler)
+        internal void ActionPlug(int phonenumber, DtsEventHandler handler)
         {
-            if (Phonenumber < 0)
+            if (phonenumber < 0)
             {
                 handler("Not valid number");
                 return;
             }
 
-            handler("Plug " + Phonenumber);
+            handler("Plug " + phonenumber);
         }
 
-        internal void ActionCall(int Phonenumber, DtsEventHandler handler)
+        internal void ActionCall(int phonenumber, DtsEventHandler handler)
         {
-            if (Phonenumber < 0)
+            if (phonenumber < 0)
             {
                 handler("Not valid number");
                 return;
             }
-            var client = from clients in clientsDTS
-                         where clients.ClientTerminal.PhoneNumber == Phonenumber
+            var client = from clients in _clientsDts
+                         where clients.ClientTerminal.PhoneNumber == phonenumber
                          select clients;
             // who are we?
-            Console.WriteLine("We call the subscriber " + Phonenumber);
-            Console.WriteLine("check of the port caused the subscriber " + Phonenumber);
+            Console.WriteLine("We call the subscriber " + phonenumber);
+            Console.WriteLine("check of the port caused the subscriber " + phonenumber);
             if (client != null && client.Count() > 0)
             {
                 Port port = client.ElementAt(0).ClientTerminal.Port;  
-                port.changeState(PortState.Busy);  
-                handler("Port for " + Phonenumber + " was changed on " + port.State);
+                port.ChangeState(PortState.Busy);  
+                handler("Port for " + phonenumber + " was changed on " + port.State);
             }
             else
                 {
@@ -98,25 +98,25 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                 }
         }
 
-        internal void ActionHangUp(int Phonenumber, DtsEventHandler handler)
+        internal void ActionHangUp(int phonenumber, DtsEventHandler handler)
         {
-            if (Phonenumber < 0)
+            if (phonenumber < 0)
             {
                 handler("Not valid number");
                 return;
             }
-            var client = from clients in clientsDTS
-                         where clients.ClientTerminal.PhoneNumber == Phonenumber
+            var client = from clients in _clientsDts
+                         where clients.ClientTerminal.PhoneNumber == phonenumber
                          select clients;
             if (client != null && client.Count() > 0)
             {
-                Console.WriteLine("the subscriber with number " + Phonenumber + " hung up");
+                Console.WriteLine("the subscriber with number " + phonenumber + " hung up");
                 IClient current = client.ElementAt(0);
                 Port port = current.ClientTerminal.Port;
-                Result result = port.changeState(PortState.ConnectedPort);
-                ICallItem ringItem = new CallItem(current, result.callDuration);
-                callsJournal.Add(ringItem);
-                handler(result.message);
+                Result result = port.ChangeState(PortState.ConnectedPort);
+                ICallItem ringItem = new CallItem(current, result.CallDuration);
+                _callsJournal.Add(ringItem);
+                handler(result.Message);
                 //handler("Port for " + Phonenumber + " was changed on " + port.State);
             }
             else
@@ -125,12 +125,12 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             }
         }
 
-        internal void ActionChangeTarif(int PhoneNumber, string newTarif, DtsEventHandler handler)
+        internal void ActionChangeTarif(int phoneNumber, string newTarif, DtsEventHandler handler)
         {
-            Tarif_enum selected;
+            TarifEnum selected;
             try
             {
-                selected = (Tarif_enum)System.Enum.Parse(typeof(Tarif_enum), newTarif);
+                selected = (TarifEnum)System.Enum.Parse(typeof(TarifEnum), newTarif);
             }
             catch
             {
@@ -138,8 +138,8 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                 return;
             }
 
-            var client = from clients in clientsDTS
-                         where clients.ClientTerminal.PhoneNumber == PhoneNumber
+            var client = from clients in _clientsDts
+                         where clients.ClientTerminal.PhoneNumber == phoneNumber
                          select clients;
             if (client != null && client.Count() > 0)
             {
@@ -170,7 +170,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 
         internal Call GetCalls()
         {
-            return callsJournal;
+            return _callsJournal;
         }
     }
 }

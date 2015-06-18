@@ -9,7 +9,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
     class Program
     {
 
-        private static DTS dts = new DTS();
+        private static Dts _dts = new Dts();
 
         static void Main(string[] args)
         {
@@ -22,8 +22,8 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             Console.WriteLine("Exit: Exit; \n");
             
 
-            dts.AddClients(generateClients(4));
-            foreach (var item in dts.GetClients())
+            _dts.AddClients(GenerateClients(4));
+            foreach (var item in _dts.GetClients())
             {
                 Console.WriteLine(item.ToString());
             }
@@ -66,30 +66,30 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 
         private static void ProcessReport(string[] parsed)
         {
-            Call journal = dts.GetCalls();
+            Call journal = _dts.GetCalls();
             Console.WriteLine("\n Show all calls");
             foreach (var c in journal)
             {
                 Console.WriteLine(c);
             }
             
-            var SortedByDate = journal.OrderBy(x => x.DateOfCall);
+            var sortedByDate = journal.OrderBy(x => x.DateOfCall);
             Console.WriteLine("\n Sorted by date");
-                foreach (var value in SortedByDate)
+                foreach (var value in sortedByDate)
                 {
                     Console.WriteLine(value);
                 }
             
-            var SortedByCost = journal.OrderBy(x => x.CostOfCall);
+            var sortedByCost = journal.OrderBy(x => x.CostOfCall);
             Console.WriteLine("\n Sorted by cost");
-            foreach (var value in SortedByCost)
+            foreach (var value in sortedByCost)
                 {
                     Console.WriteLine(value);
                 }
             
-            var SortedBySubscriber = journal.OrderBy(x => x.Client.ClientSurname);
+            var sortedBySubscriber = journal.OrderBy(x => x.Client.ClientSurname);
             Console.WriteLine("\n Sorted by subscriber");
-            foreach (var value in SortedBySubscriber)
+            foreach (var value in sortedBySubscriber)
             {
                 Console.WriteLine(value);
             }
@@ -98,8 +98,8 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 
         private static void ProcessChangeTarif(string[] parsed)
         {
-            int PhoneNumber = GetPhoneNumber(parsed);
-            if (PhoneNumber < 0)
+            int phoneNumber = GetPhoneNumber(parsed);
+            if (phoneNumber < 0)
             {
                 Console.WriteLine("Not valid number");
                 ProcessCommand();
@@ -107,7 +107,7 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             }
             if (parsed.Count() > 2)
             {
-                dts.ActionChangeTarif(PhoneNumber, parsed[2], dtsEventHandler);
+                _dts.ActionChangeTarif(phoneNumber, parsed[2], DtsEventHandler);
             }
             else
             {
@@ -118,12 +118,12 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 
         private static void ProcessHangUp(string[] parsed)
         {
-            dts.ActionHangUp(GetPhoneNumber(parsed), dtsEventHandler);
+            _dts.ActionHangUp(GetPhoneNumber(parsed), DtsEventHandler);
         }
 
         private static void ProcessCall(string[] parsed)
         {
-            dts.ActionCall(GetPhoneNumber(parsed), dtsEventHandler);
+            _dts.ActionCall(GetPhoneNumber(parsed), DtsEventHandler);
         }
         public static void ProcessResult(string msg)
         {
@@ -131,11 +131,11 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             ProcessCommand();
         }
 
-       public static DTS.DtsEventHandler dtsEventHandler =  new DTS.DtsEventHandler(ProcessResult);
+       public static Dts.DtsEventHandler DtsEventHandler =  new Dts.DtsEventHandler(ProcessResult);
 
         private static void ProcessUnplug(string[] parsed)
         {
-            dts.ActionUnPlug(GetPhoneNumber(parsed), dtsEventHandler);
+            _dts.ActionUnPlug(GetPhoneNumber(parsed), DtsEventHandler);
         }
 
         private static int GetPhoneNumber(string[] parsed)
@@ -144,8 +144,8 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             {
                 try
                 {
-                    int Phonenumber = Convert.ToInt32(parsed[1]);
-                    return Phonenumber;
+                    int phonenumber = Convert.ToInt32(parsed[1]);
+                    return phonenumber;
                 }
                 catch (Exception)
                 {
@@ -155,14 +155,14 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
         }
         private static void ProcessPlug(string[] parsed)
         {
-           dts.ActionPlug(GetPhoneNumber(parsed), dtsEventHandler);
+           _dts.ActionPlug(GetPhoneNumber(parsed), DtsEventHandler);
         } 
 
         public static void CallStatus (String message) {
             Console.WriteLine(message);
         }
 
-        public static ICollection<IClient> generateClients(int count)
+        public static ICollection<IClient> GenerateClients(int count)
         {
             ICollection<IClient> clients = new List<IClient>();
             for (int i = 0; i < count; i++)
@@ -174,14 +174,14 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             return clients;
         }
 
-        static Random random = new Random();
-        public static int getRandomValue(int maxValue)
+        static Random _random = new Random();
+        public static int GetRandomValue(int maxValue)
         {
-            return random.Next(maxValue);
+            return _random.Next(maxValue);
         }
-        public static int getRandomValue(int minValue, int maxValue)
+        public static int GetRandomValue(int minValue, int maxValue)
         {
-            return random.Next(minValue, maxValue);
+            return _random.Next(minValue, maxValue);
         }
 }
 }

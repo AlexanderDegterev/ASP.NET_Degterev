@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
-    public enum Tarif_enum
+    public enum TarifEnum
     {
         Optima1 = 5,
         Optima2 = 6,

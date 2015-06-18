@@ -19,9 +19,9 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             return State == PortState.ConnectedPort;
         }
 
-        public Result changeState(PortState newState)
+        public Result ChangeState(PortState newState)
         {
-            TimeSpan Duration = new TimeSpan();
+            TimeSpan duration = new TimeSpan();
             switch (newState)
             {
 
@@ -29,26 +29,26 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
                     String result = "Port disconnected";
                     if (State == PortState.Busy)
                     {
-                        DateTime FinishCall = DateTime.Now;
-                        Duration = FinishCall.TimeOfDay - StartCall.TimeOfDay;
-                        result = "Port disconnected. Call finished, duration : " + Duration.ToString(@"dd\.hh\:mm\:ss"); 
+                        DateTime finishCall = DateTime.Now;
+                        duration = finishCall.TimeOfDay - StartCall.TimeOfDay;
+                        result = "Port disconnected. Call finished, duration : " + duration.ToString(@"dd\.hh\:mm\:ss"); 
                     } 
                     State = PortState.DisconnectedPort;
-                    return new Result(result,Duration);
+                    return new Result(result,duration);
                     //break;
                 
                 case PortState.ConnectedPort:  // plugged / hangup
                      result = "Port connected";
                     if (State == PortState.Busy)
                     {
-                        DateTime FinishCall = DateTime.Now;
-                        Duration = FinishCall.TimeOfDay - StartCall.TimeOfDay;
+                        DateTime finishCall = DateTime.Now;
+                        duration = finishCall.TimeOfDay - StartCall.TimeOfDay;
                         //Console.WriteLine(DateTime.Now);
                         //Console.WriteLine("Duration : {0}", Duration.ToString(@"dd\.hh\:mm\:ss"));
-                        result = "Call finished, duration:  "+ Duration.ToString(@"dd\.hh\:mm\:ss");
+                        result = "Call finished, duration:  "+ duration.ToString(@"dd\.hh\:mm\:ss");
                     } 
                     State = PortState.ConnectedPort;
-                    return new Result(result, Duration);
+                    return new Result(result, duration);
                     //break;
                 
                 case PortState.Busy:  // startCall

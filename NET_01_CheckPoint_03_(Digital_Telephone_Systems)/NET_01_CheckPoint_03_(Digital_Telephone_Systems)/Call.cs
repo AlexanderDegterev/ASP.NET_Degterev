@@ -10,48 +10,48 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
     
     public class Call : ICollection<ICallItem>
     {
-        private ICollection<ICallItem> ringItem = new List<ICallItem>();
+        private ICollection<ICallItem> _ringItem = new List<ICallItem>();
 
         #region ICollection<IRingItem>
 
         public void Add(ICallItem item)
         {
-            ringItem.Add(item);
+            _ringItem.Add(item);
         }
 
         public void Clear()
         {
-            ringItem.Clear();
+            _ringItem.Clear();
         }
 
         public bool Contains(ICallItem item)
         {
-            return ringItem.Contains(item);
+            return _ringItem.Contains(item);
         }
 
         public void CopyTo(ICallItem[] array, int arrayIndex)
         {
-            ringItem.CopyTo(array, arrayIndex);
+            _ringItem.CopyTo(array, arrayIndex);
         }
 
         public int Count
         {
-            get { return ringItem.Count; }
+            get { return _ringItem.Count; }
         }
 
         public bool IsReadOnly
         {
-            get { return ringItem.IsReadOnly; }
+            get { return _ringItem.IsReadOnly; }
         }
 
         public bool Remove(ICallItem item)
         {
-            return ringItem.Remove(item);
+            return _ringItem.Remove(item);
         }
 
         public IEnumerator<ICallItem> GetEnumerator()
         {
-            return ringItem.GetEnumerator();
+            return _ringItem.GetEnumerator();
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()

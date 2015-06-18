@@ -16,18 +16,18 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 
         public int ClientBalance { get; set;}
 
-        public Tarif_enum ClientTariff {get; set;}
+        public TarifEnum ClientTariff {get; set;}
 
         public DateTime ClientStartTariff {get; set;}
 
         public Client()
         {
 
-            this.ClientName = names[Program.getRandomValue((names.Count()))];
-            this.ClientSurname = surnames[Program.getRandomValue((surnames.Count()))]; 
-            Array values = Enum.GetValues(typeof(Tarif_enum));
-            this.ClientTariff = (Tarif_enum)values.GetValue(Program.getRandomValue(values.Length));
-            this.ClientStartTariff = DateTime.Now.AddDays(-Program.getRandomValue(90)); 
+            this.ClientName = _names[Program.GetRandomValue((_names.Count()))];
+            this.ClientSurname = _surnames[Program.GetRandomValue((_surnames.Count()))]; 
+            Array values = Enum.GetValues(typeof(TarifEnum));
+            this.ClientTariff = (TarifEnum)values.GetValue(Program.GetRandomValue(values.Length));
+            this.ClientStartTariff = DateTime.Now.AddDays(-Program.GetRandomValue(90)); 
             this.ClientTerminal = new Terminal();
         }
 
@@ -36,8 +36,8 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
             this.ClientName = name;
         }
 
-        string[] names = new string[] { "Alex", "Mike", "Leha", "Dima" };
-        string[] surnames = new string[] { "Degterev", "Ivanov ", "Petrov ", "Sidorov" };
+        private readonly string[] _names = new string[] { "Alex", "Mike", "Leha", "Dima" };
+        private readonly string[] _surnames = new string[] { "Degterev", "Ivanov ", "Petrov ", "Sidorov" };
 
         
         public override string ToString() {

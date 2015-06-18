@@ -8,18 +8,18 @@ namespace NET_01_CheckPoint_03__Digital_Telephone_Systems
 {
     public class Result
     {
-        public string message;
-        public TimeSpan callDuration;
+        public string Message;
+        public TimeSpan CallDuration;
 
         public Result(string msg)
         {
-            this.message = msg;
+            this.Message = msg;
         }
        
         public Result(string msg, TimeSpan duration)
         {
-            this.message = msg;
-            this.callDuration = Round(duration);
+            this.Message = msg;
+            this.CallDuration = Round(duration);
         }
 
         public static TimeSpan Round(TimeSpan input)
