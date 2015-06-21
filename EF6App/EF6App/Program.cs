@@ -13,27 +13,19 @@ namespace EF6App
         public static void Main(string[] args)
         {
             const string path = @"C:\Temp";
-            // We will define the necessary maximum quantity of flows
-            // Let will be on 4 on each processor
-            int MaxThreadsCount = Environment.ProcessorCount * 4;
-            // We will set the maximum quantity of worker threads
-            ThreadPool.SetMaxThreads(MaxThreadsCount, MaxThreadsCount);
-            // We will set the minimum quantity of worker threads
-            ThreadPool.SetMinThreads(2, 2);
-
             Console.WriteLine("Main() invoked on thread {0}.",Thread.CurrentThread.ManagedThreadId);
             DirectoryInfo di = new DirectoryInfo(path);
             string countFiles = di.GetFiles().Length.ToString();
             Console.WriteLine("files in folder:{0}", countFiles);
             
             string[] files = Directory.GetFiles(path, "*.csv");
-            foreach (string file in files)
+            Parallel.ForEach(files, currentFile =>
             {
-                Console.WriteLine(file);
-                new Thread(() => Add2Db(file)).Start();
+                string filename = Path.GetFileName(currentFile);
+                Add2Db(currentFile);
             }
-            //for (int i = 0; i < 3; i++)
-            //    (new Thread(new ThreadStart(AddToDb()))).Start();
+                );
+
             FileWatcher watcher = new FileWatcher();
             watcher.Run();
         }
