@@ -34,12 +34,18 @@ namespace EF6App
 
         private static void OnChanged(object source, FileSystemEventArgs e)
         {
-            Console.WriteLine("File or directory " + e.FullPath + " was " + e.ChangeType);
+            //Console.WriteLine("File or directory " + e.FullPath + " was " + e.ChangeType);
+            FileInfo file = new FileInfo(e.FullPath);
+            string fileString = file.ToString();
+            //Console.WriteLine(file.Name); 
+            Program prog = new Program();
+            prog.AddToDb(fileString);
         }
 
         private static void OnRenamed(object source, RenamedEventArgs e)
         {
             Console.WriteLine("File or directory {0} was renamed to {1}", e.OldName, e.Name);
         }
+        
     }
 }
