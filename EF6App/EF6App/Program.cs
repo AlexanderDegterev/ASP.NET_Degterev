@@ -21,8 +21,11 @@ namespace EF6App
             string[] files = Directory.GetFiles(path, "*.csv");
             Parallel.ForEach(files, currentFile =>
             {
-                string filename = Path.GetFileName(currentFile);
-                Add2Db(currentFile);
+                //string filename = Path.GetFileName(currentFile);
+                if (File.Exists(currentFile))
+                { 
+                    Add2Db(currentFile);
+                }
             }
                 );
 

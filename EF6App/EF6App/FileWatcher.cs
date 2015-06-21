@@ -11,9 +11,10 @@ namespace EF6App
     {
         public void Run()
         {
+            const string path = @"C:\Temp";
             FileSystemWatcher fileSystemWatcher = new FileSystemWatcher();
 
-            fileSystemWatcher.Path = "C:\\Temp";
+            fileSystemWatcher.Path = path;
             fileSystemWatcher.IncludeSubdirectories = false;
             fileSystemWatcher.NotifyFilter =
             NotifyFilters.LastAccess | NotifyFilters.LastWrite
