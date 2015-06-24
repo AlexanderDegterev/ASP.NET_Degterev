@@ -20,7 +20,7 @@ namespace EF6App
             Run();
         }
 
-        private  void Run() //handler
+        private  void Run() 
         {
             FileSystemWatcher fileSystemWatcher = new FileSystemWatcher();
 
@@ -45,11 +45,8 @@ namespace EF6App
 
         private void OnChanged(object source, FileSystemEventArgs e)
         {
-            //Console.WriteLine("File or directory " + e.FullPath + " was " + e.ChangeType);
             FileInfo file = new FileInfo(e.FullPath);
             string fileString = file.ToString();
-            //Console.WriteLine(file.Name); 
-            handler(fileString);
         }
 
         private void OnRenamed(object source, RenamedEventArgs e)

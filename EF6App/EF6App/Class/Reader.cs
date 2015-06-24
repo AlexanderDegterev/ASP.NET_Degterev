@@ -23,42 +23,53 @@ namespace EF6App
             {
                 //string[] fileNameParce = filename.Split(delimitersFileCSV);
                 //Console.WriteLine(fileNameParce[2]);
-                //FileInfo fileInf = new FileInfo(filename);
-                //Console.WriteLine("Output: {0},{1}.{2}",fileInf.Name,fileInf.CreationTime,fileInf.Length);
                 if (CheckAlreadyParsed(filename))
                 {
                     handler("Already parsed");
                     //DeleteDuplicate();
-                    return;
-                }
-                ReadFile(filename, handler);
 
-                SaveProcessedFileInfo(filename);
-                
-                MoveFileToArchive(filename);
+                    ReadFile(filename, handler);
+
+                    SaveProcessedFileInfo(filename);
+
+                    MoveFileToArchive(filename);
+                }
+                else
+                {
+                    handler("The file is already loaded!");
+                }
             }
             catch (FileNotFoundException e)
             {
                 Console.WriteLine("Error: " + e.Message);
             }
-            finally
-            {
-                //close closable objects (close file connection..)
-            }
 
         }
 
-
         private bool CheckAlreadyParsed (string filename)
         {
-            return false;
+            using (LoadingFileContext dbLoadingFileContext = new LoadingFileContext())
+            {
+                var countFileName =
+                    dbLoadingFileContext.LoadingFiles.Where(p => p.FileName == GetFileName(filename)).Count();
+                if (countFileName > 0)
+                    return false;
+            }
+            return true;
+        }
+
+        private string GetFileName(string filename)
+        {
+            FileInfo fileInf = new FileInfo(filename);
+            string fileName = fileInf.Name;
+            return fileName;
         }
 
         private void MoveFileToArchive(string filename)
         {
-            FileInfo fileInfo = new FileInfo(filename);
-            string fileName = fileInfo.Name;
-            fileInfo.MoveTo(Constants.TargetPath + '\\' + fileName);
+            FileInfo fileInf = new FileInfo(filename);
+            string name = GetFileName(filename);
+            fileInf.MoveTo(Constants.TargetPath + '\\' + name);
         }
 
         private void ReadFile(string filename, ReaderEventHandler handler)
@@ -67,10 +78,24 @@ namespace EF6App
             {
                 while (rd.Peek() >= 0)
                 {
-                    string line = rd.ReadLine();
-                    string[] vals = line.Split(delimiters);
+                    try
+                    {
+                        string line = rd.ReadLine();
+                        string[] vals = line.Split(delimiters);
 
-                    SaveSaleInfo(handler, vals);
+                        SaveSaleInfo(handler, vals);
+                    }
+                    catch (System.IO.IOException e)
+                    {
+                        Console.WriteLine("Error adding of data from {0}. Message = {1}", filename, e.Message);
+                    }
+                    finally
+                    {
+                        if (rd != null)
+                        {
+                            rd.Close();
+                        }
+                    }
                 }
             }
         }
@@ -94,15 +119,6 @@ namespace EF6App
                 {
                     db.ManagerSales.Add(client1);
                     db.SaveChanges();
-                    //handler("Objects save");
-
-                    //DbSet<ManagerSale> managerSales = db.ManagerSales;
-                    //handler("List object:");
-                    //foreach (ManagerSale u in managerSales)
-                    //{
-                    //    Console.WriteLine("{0},{1},{2},{3},{4},{5},{6}", u.Id, u.ManagerSurname,
-                    //        u.ManagerDate, u.ClientDate, u.Client, u.Product, u.Sum);
-                    //}
                 }
                 else
                 {
