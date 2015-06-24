@@ -12,14 +12,11 @@ namespace EF6App
     using System;
     using System.Collections.Generic;
     
-    public partial class ManagerSale
+    public partial class LoadingFile
     {
         public int Id { get; set; }
-        public string ManagerSurname { get; set; }
-        public System.DateTime ManagerDate { get; set; }
-        public System.DateTime ClientDate { get; set; }
-        public string Client { get; set; }
-        public string Product { get; set; }
-        public int Sum { get; set; }
+        public string FileName { get; set; }
+        public Nullable<System.DateTime> CreationDate { get; set; }
+        public Nullable<decimal> FileLenght { get; set; }
     }
 }

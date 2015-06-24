@@ -39,6 +39,14 @@
       <FileName>Result.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="NET_01_CheckPoint_03__Digital_Telephone_Systems.Terminal">
+    <Position X="10" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Terminal.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Interface Name="NET_01_CheckPoint_03__Digital_Telephone_Systems.IClient">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>

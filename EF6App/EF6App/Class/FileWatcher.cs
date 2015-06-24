@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +10,21 @@ namespace EF6App
 {
     public class FileWatcher
     {
-        public void Run()
+        public delegate void FileWatcherHandler(string name);
+
+        private FileWatcherHandler handler;
+
+        public FileWatcher(FileWatcherHandler fileHandler)
         {
-            const string path = @"C:\Temp";
+            this.handler = fileHandler;
+            Run();
+        }
+
+        private  void Run() //handler
+        {
             FileSystemWatcher fileSystemWatcher = new FileSystemWatcher();
 
-            fileSystemWatcher.Path = path;
+            fileSystemWatcher.Path = Constants.Path;
             fileSystemWatcher.IncludeSubdirectories = false;
             fileSystemWatcher.NotifyFilter =
             NotifyFilters.LastAccess | NotifyFilters.LastWrite
@@ -33,17 +43,16 @@ namespace EF6App
             Console.ReadKey(true);
         }
 
-        private static void OnChanged(object source, FileSystemEventArgs e)
+        private void OnChanged(object source, FileSystemEventArgs e)
         {
             //Console.WriteLine("File or directory " + e.FullPath + " was " + e.ChangeType);
             FileInfo file = new FileInfo(e.FullPath);
             string fileString = file.ToString();
             //Console.WriteLine(file.Name); 
-            Program prog = new Program();
-            prog.AddToDb(fileString);
+            handler(fileString);
         }
 
-        private static void OnRenamed(object source, RenamedEventArgs e)
+        private void OnRenamed(object source, RenamedEventArgs e)
         {
             Console.WriteLine("File or directory {0} was renamed to {1}", e.OldName, e.Name);
         }

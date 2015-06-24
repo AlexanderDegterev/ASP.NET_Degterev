@@ -12,39 +12,39 @@ namespace EF6App
     {
         public static void Main(string[] args)
         {
-            const string path = @"C:\Temp";
-            Console.WriteLine("Main() invoked on thread {0}.",Thread.CurrentThread.ManagedThreadId);
-            DirectoryInfo di = new DirectoryInfo(path);
+            AddFilesInFolderToDB(); 
+
+            new FileWatcher(_fileHandler); //Add handler, which recieves new filename, starts addToDB method on new thread
+            
+        }
+
+        private static void AddFilesInFolderToDB()
+        {
+            Console.WriteLine("Main() invoked on thread {0}.", Thread.CurrentThread.ManagedThreadId);
+            DirectoryInfo di = new DirectoryInfo(Constants.Path);
             string countFiles = di.GetFiles().Length.ToString();
             Console.WriteLine("files in folder:{0}", countFiles);
-            
-            string[] files = Directory.GetFiles(path, "*.csv");
+
+            string[] files = Directory.GetFiles(Constants.Path, "*.csv");
             Parallel.ForEach(files, currentFile =>
             {
-                //string filename = Path.GetFileName(currentFile);
                 if (File.Exists(currentFile))
-                { 
+                {
                     Add2Db(currentFile);
                 }
             }
                 );
-
-            FileWatcher watcher = new FileWatcher();
-            watcher.Run();
         }
 
-        public void AddToDb(string tofile)
+        private static void NewFileHandler(string fileName)
         {
-            Console.WriteLine("AddToDb() invoked on thread {0}.", Thread.CurrentThread.ManagedThreadId);
-            //const string toFile = "1.csv";
-            Reader reader = new Reader();
-            reader.ReadFileAndAddToDb(tofile, _eventHandler);
+            Task.Factory.StartNew(() => Add2Db(fileName));
         }
+
 
         private static void Add2Db(string tofile)
         {
             Console.WriteLine("Add2Db() invoked on thread {0}.", Thread.CurrentThread.ManagedThreadId);
-            //const string toFile = "1.csv";
             Reader reader = new Reader();
             reader.ReadFileAndAddToDb(tofile, _eventHandler);
         }
@@ -55,13 +55,8 @@ namespace EF6App
         }
 
         private static Reader.ReaderEventHandler _eventHandler = new Reader.ReaderEventHandler(MessageResult);
-        //private static void PrintInfoToConsole(ICollection<IFlying> flyings)
-        //{
-        //    foreach (var item in flyings)
-        //    {
-        //        Console.WriteLine(item.GetInfo());
-        //    }
-        //}
+
+        private static FileWatcher.FileWatcherHandler _fileHandler = new FileWatcher.FileWatcherHandler(NewFileHandler);
     }
 }
             

@@ -12,14 +12,11 @@ namespace EF6App
     using System;
     using System.Collections.Generic;
     
-    public partial class ManagerSale
+    public partial class C__MigrationHistory
     {
-        public int Id { get; set; }
-        public string ManagerSurname { get; set; }
-        public System.DateTime ManagerDate { get; set; }
-        public System.DateTime ClientDate { get; set; }
-        public string Client { get; set; }
-        public string Product { get; set; }
-        public int Sum { get; set; }
+        public string MigrationId { get; set; }
+        public string ContextKey { get; set; }
+        public byte[] Model { get; set; }
+        public string ProductVersion { get; set; }
     }
 }
