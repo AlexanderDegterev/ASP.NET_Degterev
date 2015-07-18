@@ -7,6 +7,7 @@ using Moq;
 using Ninject;
 using StatisticsOfSales.Domain.Abstract;
 using StatisticsOfSales.Domain.Entities;
+using StatisticsOfSales.Domain.Concrete;
 
 namespace StatisticsOfSales.WebUI.Infrastructure
 {
@@ -34,14 +35,15 @@ namespace StatisticsOfSales.WebUI.Infrastructure
         private void AddBindings()
         {
             // конфигурирование контейнера
-            Mock<ISaleRepository> mock = new Mock<ISaleRepository>();
-            mock.Setup(m => m.Sales).Returns(new List<Sale> { 
-                new Sale { Name = "Football", Date = new DateTime(1991, 12, 31), Product = "Product1", Price = 25 }, 
-                new Sale { Name = "Surf board", Date = new DateTime(2015, 12, 12), Product = "Product2", Price = 179 }, 
-                new Sale { Name = "Running shoes",Date = new DateTime(2015, 12, 12), Product = "Product3", Price = 95 } 
-            }.AsQueryable());
+            ninjectKernel.Bind<ISaleRepository>().To<EFProductRepository>();
+            //Mock<ISaleRepository> mock = new Mock<ISaleRepository>();
+            //mock.Setup(m => m.Sales).Returns(new List<Sale> { 
+            //    new Sale { Name = "Football", Date = new DateTime(1991, 12, 31), Product = "Product1", Price = 25 }, 
+            //    new Sale { Name = "Surf board", Date = new DateTime(2015, 12, 12), Product = "Product2", Price = 179 }, 
+            //    new Sale { Name = "Running shoes",Date = new DateTime(2015, 12, 12), Product = "Product3", Price = 95 } 
+            //}.AsQueryable());
 
-            ninjectKernel.Bind<ISaleRepository>().ToConstant(mock.Object);
+            //ninjectKernel.Bind<ISaleRepository>().ToConstant(mock.Object);
         }
     }
 } 
