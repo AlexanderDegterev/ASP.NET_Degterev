@@ -1,60 +1,79 @@
-﻿@using System.Data.SqlClient
-@model IEnumerable<StatisticsOfSales_v2.DAL.Sale>
+﻿@model PagedList.IPagedList<StatisticsOfSales_v2.DAL.Sale>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css"/>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Statistics of sales";
 }
 
-<h2>Index</h2>
+<h2>Statistics of sales</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("Index","Sales", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search"/>
+    </p> 
+}
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("ManagerName", "Index", new { SortOrder = ViewBag.ManagerNameSortParm })
-            <!--@Html.DisplayNameFor(model => model.Manager.ManagerName)-->
+            @Html.ActionLink("ManagerName", "Index", new {SortOrder = ViewBag.ManagerNameSortParm})
         </th>
         <th>
-            @Html.ActionLink("Date", "Index", new { SortOrder = ViewBag.DateSortParm })
-            <!--@Html.DisplayNameFor(model => model.Date)-->
+            @Html.ActionLink("Date", "Index", new {SortOrder = ViewBag.DateSortParm})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Client.ClientName)
+            ClientName
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Product.ProductName)
+            ProductName
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SUM)
+            SUM
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Manager.ManagerName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Client.ClientName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SUM)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {id = item.SaleID}) |
-            @Html.ActionLink("Details", "Details", new {id = item.SaleID}) |
-            @Html.ActionLink("Delete", "Delete", new {id = item.SaleID})
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manager.ManagerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.ClientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SUM)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.SaleID}) |
+                @Html.ActionLink("Details", "Details", new {id = item.SaleID}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.SaleID})
+            </td>
+        </tr>
+    }
 
 </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of
+@Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new
+    {
+        page,
+        sortOrder = ViewBag.CurrentSort,
+        currentFilter =
+            ViewBag.CurrentFilter
+    }))

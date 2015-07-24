@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using StatisticsOfSales_v2.DAL;
+using PagedList;
 
 namespace StatisticsOfSales_v2.Controllers
 {
@@ -21,12 +22,28 @@ namespace StatisticsOfSales_v2.Controllers
         //    return View(sales.ToList());
         //}
 
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder,string currentFilter,string searchString,int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.ManagerNameSortParm = String.IsNullOrEmpty(sortOrder) ? "managerName_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
             var sales = from s in db.Sales
                 select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                sales = sales.Where(s => s.Manager.ManagerName.ToUpper().Contains(searchString.ToUpper()) ||
+                                         s.Manager.ManagerSurname.ToUpper().Contains(searchString.ToUpper()));
+            }
             switch  (sortOrder)
             {
                 case "managerName_desc":
@@ -36,13 +53,17 @@ namespace StatisticsOfSales_v2.Controllers
                     sales = sales.OrderBy(s => s.Date);
                     break;
                 case "date_desc":
-                    sales = sales.OrderByDescending(s => s.ClientID);
+                    sales = sales.OrderByDescending(s => s.Date);
                     break;
                 default:
-                    sales = sales.OrderBy(s => s.SUM);
+                    sales = sales.OrderBy(s => s.ManagerID);
                     break;
             }
-            return View(sales.ToList());
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(sales.ToPagedList(pageNumber, pageSize));
+            //return View(sales.ToList());
         }
 
         // GET: /Sales/Details/5
