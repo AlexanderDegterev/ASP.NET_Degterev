@@ -1,0 +1,47 @@
+﻿@model StatisticsOfSales_v2.DAL.Sale
+@using System.Linq
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Diagrams";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<h3>Hello WORLD</h3>
+<h2>@ViewBag.SM2</h2>
+<div id="chart_div"></div>
+<script type="text/javascript" src="https://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+    // loading API
+    google.load('visualization', '1.0', { 'packages': ['corechart'] });
+
+    // Set callback
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        var options = {
+            'title': 'Managers',
+            'width': 500,
+            'height': 250
+        };
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'manager');
+        data.addColumn('number', 'amount');
+
+        $.getJSON('@Url.Action("GetManagerAgePie", "Home")', null, function (result) {
+            if (result.Salemanager.length) {
+                $.each(result.Salemanager, function (index, c) {
+                    data.addRow(
+                        [c.manager, c.amount]
+                    );
+                });
+                // drawing of the chart
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            };
+        });
+    }
+</script>

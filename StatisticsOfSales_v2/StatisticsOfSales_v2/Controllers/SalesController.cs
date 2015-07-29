@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using StatisticsOfSales_v2.DAL;
 using PagedList;
@@ -28,7 +29,11 @@ namespace StatisticsOfSales_v2.Controllers
             ViewBag.ManagerNameSortParm = String.IsNullOrEmpty(sortOrder) ? "managerName_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
 
-            if (searchString != null)
+            if (page == null)
+            {
+                page = 1;
+            }
+            if (searchString != null)//todo
             {
                 page = 1;
             }
@@ -60,7 +65,7 @@ namespace StatisticsOfSales_v2.Controllers
                     break;
             }
 
-            int pageSize = 3;
+            int pageSize = Convert.ToInt32(WebConfigurationManager.AppSettings["CountPage"]);//3;todo consts
             int pageNumber = (page ?? 1);
             return View(sales.ToPagedList(pageNumber, pageSize));
             //return View(sales.ToList());
@@ -95,7 +100,7 @@ namespace StatisticsOfSales_v2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="SaleID,ManagerID,Date,ClientID,ProductID,SUM")] Sale sale)
+        public ActionResult Create([Bind(Include = "SaleID,ManagerID,Date,ClientID,ProductID,TotalSum")] Sale sale)
         {
             if (ModelState.IsValid)
             {
@@ -133,7 +138,7 @@ namespace StatisticsOfSales_v2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="SaleID,ManagerID,Date,ClientID,ProductID,SUM")] Sale sale)
+        public ActionResult Edit([Bind(Include = "SaleID,ManagerID,Date,ClientID,ProductID,TotalSum")] Sale sale)
         {
             if (ModelState.IsValid)
             {

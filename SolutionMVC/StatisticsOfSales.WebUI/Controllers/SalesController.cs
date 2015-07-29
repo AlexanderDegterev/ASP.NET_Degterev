@@ -18,7 +18,7 @@ namespace StatisticsOfSales.WebUI.Controllers
         public ActionResult Index()
         {
             var sales = db.Sales.Include(s => s.Client).Include(s => s.Manager).Include(s => s.Product);
-            return View(db.sales.ToList());
+            return View(db.Sales.ToList());
         }
 
         // GET: /Sales/Details/5

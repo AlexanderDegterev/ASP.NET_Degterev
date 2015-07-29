@@ -37,7 +37,7 @@
           <Property Name="Date" Type="datetime" />
           <Property Name="ClientID" Type="int" Nullable="false" />
           <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="SUM" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalSum" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <Association Name="FK_Sales_Clients">
           <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
@@ -133,7 +133,7 @@
           <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="ClientID" Type="Int32" Nullable="false" />
           <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="SUM" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalSum" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Sales_Clients" FromRole="Sales" ToRole="Clients" />
           <NavigationProperty Name="Manager" Relationship="Self.FK_Sales_Managers" FromRole="Sales" ToRole="Managers" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Sales_Products" FromRole="Sales" ToRole="Products" />
@@ -232,7 +232,7 @@
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="ClientID" ColumnName="ClientID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="SUM" ColumnName="SUM" />
+                <ScalarProperty Name="TotalSum" ColumnName="TotalSum" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

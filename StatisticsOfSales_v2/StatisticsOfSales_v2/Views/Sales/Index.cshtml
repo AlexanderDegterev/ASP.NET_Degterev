@@ -33,7 +33,7 @@
             ProductName
         </th>
         <th>
-            SUM
+            TotalSum
         </th>
         <th></th>
     </tr>
@@ -54,7 +54,7 @@
                 @Html.DisplayFor(modelItem => item.Product.ProductName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SUM)
+                @Html.DisplayFor(modelItem => item.TotalSum)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new {id = item.SaleID}) |
