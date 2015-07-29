@@ -1,0 +1,15 @@
+﻿@model IEnumerable<global::StatisticsOfSales.Domain.Entities.Sale>
+
+    @{ ViewBag.Title = "List"; }
+
+    <h2>List</h2>
+
+    @foreach (var p in Model)
+    {
+        <div class="item">
+            @p.ClientID
+            <h3?>@p.ProductID</h3?>
+            @p.ManagerID
+        </div>
+    }
+
