@@ -10,10 +10,7 @@ namespace StatisticsOfSales.Domain.Concrete
 {
     public class EFDbContext : DbContext
     {
-        //public EFDbContext() : base("name=EFDbContext")
-        //{
-            
-        //}
+        //public EFDbContext() : base("name=EFDbContext");
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Manager> Managers { get; set; }
         public virtual DbSet<Product> Products { get; set; }

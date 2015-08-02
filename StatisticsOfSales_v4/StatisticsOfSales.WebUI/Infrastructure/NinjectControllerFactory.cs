@@ -34,7 +34,7 @@ namespace StatisticsOfSales.WebUI.Infrastructure
 
         private void AddBindings()
         {
-            ninjectKernel.Bind<ISalesRepository>().To<EFSaleRepository>();
+            ninjectKernel.Bind<ISalesRepository>().To<SaleRepository>();
         }
     }
 

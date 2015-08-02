@@ -54,7 +54,7 @@
     <Compile Include="Abstract\IProductsRepository.cs" />
     <Compile Include="Abstract\ISalesRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
-    <Compile Include="Concrete\EFSaleRepository.cs" />
+    <Compile Include="Concrete\SaleRepository.cs" />
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\Manager.cs" />
     <Compile Include="Entities\Product.cs" />
